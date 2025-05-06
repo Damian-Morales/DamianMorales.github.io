@@ -12,7 +12,7 @@ This course introduced foundational knowledge needed to understand and begin a c
 
 ---
 
-## 📚 Module-by-Module Learning Objectives
+##  Module-by-Module Learning Objectives
 
 ###  Module 1: Welcome to Cybersecurity
 - Explain how this certificate program will help prepare learners for a career in security
