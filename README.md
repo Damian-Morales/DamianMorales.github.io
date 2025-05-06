@@ -5,7 +5,7 @@ This site was created to showcase my journey, skills, and professional developme
 
 ##  Website
 
- Visit the live portfolio: https://github.com/Damian-Morales
+ Visit the live portfolio: [https://github.com/Damian-Morales](https://damian-morales.github.io/DamianMorales.github.io/)
 
 ##  About Me
 
