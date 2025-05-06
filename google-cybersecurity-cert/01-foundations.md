@@ -54,6 +54,6 @@ This course gave me a clear understanding of what cybersecurity analysts do and 
 
 ---
 
-📜 [View my certificate on Coursera](https://coursera.org/account/accomplishments/verify/43PUTYQOON4E)
+ [View my certificate on Coursera](https://coursera.org/account/accomplishments/verify/43PUTYQOON4E)
 
 [← Back to Portfolio](../index.html)
