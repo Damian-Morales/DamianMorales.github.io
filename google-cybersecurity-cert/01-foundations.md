@@ -20,4 +20,6 @@
 ##  Reflection
 This course provided a solid foundation for understanding what cybersecurity professionals do and why their role is essential. It helped confirm my passion for pursuing a role in security operations and increased my interest in security ethics.
 
+[View my certificate on Coursera](https://coursera.org/account/accomplishments/verify/43PUTYQOON4E)
+
 [← Back to Portfolio](../index.html)
