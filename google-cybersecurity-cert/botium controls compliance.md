@@ -26,9 +26,9 @@ This document presents a comprehensive assessment of Botium Toys' current securi
 | Antivirus Software                       |  Yes           | Antivirus solutions are deployed across all systems.                     |
 | Manual Monitoring (Legacy Systems)       |  No            | Legacy systems lack continuous monitoring mechanisms.                    |
 | Encryption                               |  No            | Encryption is not implemented.                                           |
-| Password Management System               |  No            | There is no password managment system currently in place.                |
+| Password Management System               |  No            | There is no password management system currently in place.                |
 | Physical Locks (Offices, Storefront)     |  Yes           | Locks are installed at all access points.                                |
-| CCTV Surveillance                        |  yes           | Surveillance systems are installed and functioning at physical location. |
+| CCTV Surveillance                        |  yes           | Surveillance systems are installed and functioning at the physical location. |
 | Fire detection/prevention                |  yes           | Has a functioning fire detection and prevention system.                  |
 
 ---
@@ -49,10 +49,9 @@ This document presents a comprehensive assessment of Botium Toys' current securi
 | **Requirement**                                   | **Compliant** | **Notes**                                                   |
 |---------------------------------------------------|----------------|--------------------------------------------------------------|
 | Protect EU customer data                          |  No           | Inadequate data protection for EU clients.                   |
-| Notify breaches within 72 hours                   |  Yes          | There is a plan to notify E.U. customers within 72 hours of
-                                                                      of breach.                                                   |
+| Notify breaches within 72 hours                   |  Yes          | There is a plan to notify E.U. customers within 72 hours of a breach.|
 | Inventory and classify personal data              |  No           | Data is not systematically documented or classified.         |
-| Privacy policy and transparency documentation     |  Yes          | Private policies, procedures, and process have been developed
+| Privacy policy and transparency documentation     |  Yes          | Private policies, procedures, and processes have been developed
                                                                       and enforced.                                                |
 
 ### SOC 2
@@ -61,14 +60,14 @@ This document presents a comprehensive assessment of Botium Toys' current securi
 |---------------------------------------------------|----------------|--------------------------------------------------------------|
 | User access policies and reviews                  |  No           | User roles and access levels are not consistently reviewed.  |
 | Maintain confidentiality of sensitive data        |  No           | Controls for protecting sensitive data are insufficient.     |
-| Ensure data integrity and accuracy                |  yes          | Data integrity is in place.                                  |
+| Ensure data integrity and accuracy                |  Yes          | Data integrity is in place.                                  |
 | Data availability                                 |  No           | Authorization needs to be limited to only those who need it. |
 
 ---
 
 ##  Recommendations
 
-**Immediate Immediate control actions**
+**Immediate control actions**
 - Develop and implement a comprehensive password policy.
 - Establish a formal disaster recovery and business continuity plan.
 - Implement an intrusion detection system for real-time threat monitoring.
