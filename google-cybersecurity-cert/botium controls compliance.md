@@ -51,8 +51,7 @@ This document presents a comprehensive assessment of Botium Toys' current securi
 | Protect EU customer data                          |  No           | Inadequate data protection for EU clients.                   |
 | Notify breaches within 72 hours                   |  Yes          | There is a plan to notify E.U. customers within 72 hours of a breach.|
 | Inventory and classify personal data              |  No           | Data is not systematically documented or classified.         |
-| Privacy policy and transparency documentation     |  Yes          | Private policies, procedures, and processes have been developed
-                                                                      and enforced.                                                |
+| Privacy policy and transparency documentation     |  Yes          | Private policies, procedures, and processes have been developed and enforced.|
 
 ### SOC 2
 
