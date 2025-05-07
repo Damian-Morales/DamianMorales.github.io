@@ -43,4 +43,5 @@ This course taught me how to identify and manage risks, threats, and vulnerabili
 
 This course gave me a practical understanding of assessing and managing cyber risks, especially using structured frameworks like the NIST RMF and CISSP domains. I now feel more prepared to interpret audit results, respond to real-world threats with tools like SIEM, and develop playbooks to support incident response workflows.
 
+ [View my certificate on Coursera](https://coursera.org/share/84b280378cc6430689eefdeec028698e)
 [← Back to Portfolio](../index.html)
