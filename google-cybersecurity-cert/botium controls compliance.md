@@ -4,6 +4,8 @@ This document presents a comprehensive assessment of Botium Toys' current securi
 
 ---
 
+**Botium Toys: Scope, goals, and risk assessment report:** 
+
 ## Audit Scope
 
 - **Objective**: Evaluate existing security controls and identify areas for improvement.
