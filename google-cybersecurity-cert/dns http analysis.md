@@ -1,6 +1,6 @@
 # Cybersecurity Incident Report – TCP SYN Flood Attack Analysis
 
-**WireShark TCP/HTTP log:**
+**Wireshark TCP/HTTP log:**
 https://docs.google.com/spreadsheets/d/1enpRzrIao3J2Lp2tOI0hmu1Cu7D7CjLGhFAiTiR9J64/edit?gid=1522826613#gid=1522826613
 
 ## Section 1: Identify the Type of Attack That May Have Caused This Network Interruption
