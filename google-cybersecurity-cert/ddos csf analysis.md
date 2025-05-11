@@ -1,5 +1,8 @@
 # DDoS Incident Report with NIST CSF Analysis
 
+## NIST CSF
+https://docs.google.com/document/d/15yCDbDCOAcJw-LTz2DeCA7UeLRfvsf176T6MA6ku6ok/template/preview
+
 ## Summary of the Security Event
 
 A multimedia company that offers web and graphic design services experienced a Distributed Denial of Service (DDoS) attack targeting its internal network. The attack involved a flood of incoming ICMP packets that overwhelmed the company’s infrastructure and caused a complete network outage for approximately two hours. The organization’s network stopped responding to internal requests and could not access any services or resources.
