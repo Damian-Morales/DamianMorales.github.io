@@ -40,10 +40,10 @@ This course provided a comprehensive understanding of how networks function, the
 
 To reinforce the concepts covered in this course, I completed several hands-on incident report analyses based on real-world cybersecurity threats involving network protocols, traffic patterns, and layered defenses:
 
-- [Analyze TCP SYN Attack & HTTP Interruption](dns%20http%20analysis.md)  
-- [Malware Redirection Incident Report](malware%20redirection%20report.md)  
-- [DNS icmp analysis](dns%20icmp%20analysis.md)
-- [DDoS Incident Report with NIST CSF Analysis](ddos%20csf%20analysis.md)
+- [Analyze TCP SYN Attack & HTTP Interruption](dns-http-analysis.md)  
+- [Malware Redirection Incident Report](malware-redirection-report.md)  
+- [DNS icmp analysis](dns-icmp-analysis.md)
+- [DDoS Incident Report with NIST CSF Analysis](ddos-csf-analysis.md)
 
 These activities deepened my understanding of how to analyze suspicious traffic, identify common network-layer attacks, and apply cybersecurity frameworks such as the NIST CSF. They also enhanced my skills in incident documentation, protocol inspection, and strategic mitigation planning.
 
