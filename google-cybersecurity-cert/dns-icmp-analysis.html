@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNS & ICMP Incident Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>DNS & ICMP Incident Analysis Report</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This report examines DNS query failures and ICMP unreachable packets observed in network traffic. The analysis is based on data from a lab environment simulating unusual DNS behavior and network interruptions. 
+    The full traffic log is available here:
+    <a href="https://docs.google.com/spreadsheets/d/1enpRzrIao3J2Lp2tOI0hmu1Cu7D7CjLGhFAiTiR9J64/edit?gid=218501934#gid=218501934" target="_blank">
+      DNS/ICMP Traffic Log
+    </a>.
+  </p>
+
+  <h2>Scenario Summary</h2>
+  <p>
+    DNS requests from internal hosts consistently failed to resolve a specific domain. In response, ICMP Destination Unreachable messages were generated, indicating that the DNS servers were unreachable. 
+    The pattern suggested either misconfigured routing or a denial-of-service event affecting the availability of DNS services.
+  </p>
+
+  <h2>Key Findings</h2>
+  <ul>
+    <li>Multiple DNS requests with no response</li>
+    <li>ICMP Type 3 Code 1 (Destination Unreachable, Host Unreachable) repeatedly returned</li>
+    <li>Downstream communication with critical infrastructure was disrupted</li>
+  </ul>
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Wireshark for protocol filtering and analysis</li>
+    <li>ICMP and DNS display filters</li>
+    <li>Packet follow-up analysis</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>
+    The ICMP error messages confirmed that internal systems could not reach the DNS service. This failure caused interruptions to name resolution and reflected availability issues.
+    The ability to identify these patterns through packet analysis helps detect and respond to infrastructure disruptions early.
+  </p>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">← Back to Portfolio</a>
+  </p>
+</body>
+</html>
