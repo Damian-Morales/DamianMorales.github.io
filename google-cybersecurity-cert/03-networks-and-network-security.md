@@ -43,6 +43,7 @@ To reinforce these topics, I completed several hands-on incident report analyses
 - [Analyze TCP SYN Attack & HTTP Interruption](dns%20http%20analysis.md)  
 - [Malware Redirection Incident Report](malware%20redirection%20report.md)  
 - [DDoS Incident Report with NIST CSF Analysis](ddos%20csf%20analysis.md)
+- [DNS icmp analysis](dns%20icmp%20analysis.md)
 
 These exercises helped me apply concepts such as traffic analysis, TCP/IP behavior, DNS resolution, and layered security defenses in practical scenarios.
 
