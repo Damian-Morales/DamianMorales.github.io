@@ -1,52 +1,62 @@
-# Course 3: Networks and Network Security
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course 3: Connect and Protect – Networks and Network Security</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Course 3: Connect and Protect – Networks and Network Security</h1>
 
-This course provided a comprehensive understanding of how networks function, the types of threats they face, and the security protocols and hardening strategies used to protect them. Through four modules, I explored essential networking concepts, tools, and real-world scenarios relevant to the cybersecurity field.
+  <h2>Course Overview</h2>
+  <p>
+    This course introduced the fundamentals of computer networking and the technologies and practices that protect network infrastructure. Topics included the OSI model, TCP/IP, IP addressing, network hardening, and layered defense strategies.
+  </p>
 
----
+  <h3>Module 1: Network Foundations</h3>
+  <p>
+    I learned how data travels across the internet, how IP addresses and ports function, and the purpose of routers, switches, and firewalls. The OSI and TCP/IP models were used to break down how data moves through a network.
+  </p>
 
-## Key Learning Objectives by Module
+  <h3>Module 2: Network Hardening</h3>
+  <p>
+    This module explained how to secure network infrastructure using methods such as disabling unused services, securing network devices, implementing VLANs, and configuring firewalls and access control lists (ACLs).
+  </p>
 
-### Module 1: Network Fundamentals
+  <h3>Module 3: Network Monitoring and Traffic Analysis</h3>
+  <p>
+    I practiced using tools like Wireshark to capture and analyze network traffic, identifying anomalies and investigating potential threats using protocol filters and flow patterns.
+  </p>
 
-- Defined types of networks (LAN, WAN, PAN, etc.)
-- Described physical network components (routers, switches, cables)
-- Understood the role of the TCP/IP model in network communication
-- Explained how data is transmitted over networks
+  <h3>Module 4: Layered Defense</h3>
+  <p>
+    This module reinforced the concept of defense-in-depth by combining physical, technical, and administrative controls. I learned how each layer contributes to overall protection from external and internal threats.
+  </p>
 
-### Module 2: Protocols and Security Tools
-
-- Recognized common network protocols (TCP, UDP, ICMP, HTTP, DNS)
-- Described how protocols transmit/access data over networks
-- Defined firewalls and their role in protecting traffic
-- Identified tools and best practices for securing communication
-
-### Module 3: Network Attacks and Intrusion Tactics
-
-- Investigated security breaches and intrusion methods (DoS/DDoS, spoofing)
-- Described different types of network attacks and how they operate
-- Explained methods to secure a network against intrusions
-- Used troubleshooting tools to assess and respond to network issues
-
-### Module 4: Network Hardening and Defense
-
-- Described OS, network, and cloud security hardening techniques
-- Explored ways to reduce network vulnerabilities
-- Learned how to secure cloud infrastructure and services
-- Understood the value of preventive controls in long-term security
-
----
-
-## Hands-On Activities
-
-To reinforce the concepts covered in this course, I completed several hands-on incident report analyses based on real-world cybersecurity threats involving network protocols, traffic patterns, and layered defenses:
-
-- [DNS icmp analysis](dns-icmp-analysis.md)
-- [Analyze TCP SYN Attack & HTTP Interruption](dns-http-analysis.md)  
-- [Malware Redirection Incident Report](malware-redirection-report.md)  
-- [DDoS Incident Report with NIST CSF Analysis](ddos-csf-analysis.md)
-
-These activities deepened my understanding of how to analyze suspicious traffic, identify common network-layer attacks, and apply cybersecurity frameworks such as the NIST CSF. They also enhanced my skills in incident documentation, protocol inspection, and strategic mitigation planning.
-
----
-
-[← Back to Portfolio](./index.md)
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">← Back to Portfolio</a>
+  </p>
+</body>
+</html>
