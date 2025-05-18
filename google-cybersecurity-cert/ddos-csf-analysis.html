@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDoS Incident Report with NIST CSF Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>DDoS Incident Report with NIST CSF Analysis</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This report details the investigation of a suspected Distributed Denial of Service (DDoS) attack and applies the NIST Cybersecurity Framework (CSF) to guide response actions.
+    The incident was simulated as part of a lab exercise designed to build analytical and framework application skills.
+    The original worksheet for applying NIST CSF categories can be accessed here:
+    <a href="https://docs.google.com/document/d/1s2u_RuhRAI40JSh-eZHvaFsV1ZMxcNSWXifHDTOsgFc/template/preview#heading=h.evidx83t54sc" target="_blank">
+      NIST CSF Worksheet
+    </a>.
+  </p>
+
+  <h2>Incident Summary</h2>
+  <p>
+    The target web server experienced a flood of incoming TCP SYN requests that appeared automated and originated from multiple spoofed IP addresses. This pattern, common in SYN flood attacks,
+    suggested an attempt to overwhelm the server’s ability to process legitimate connections. As a result, server performance degraded and many legitimate requests were dropped.
+  </p>
+
+  <h2>NIST CSF Functions Applied</h2>
+  <ul>
+    <li><strong>Identify:</strong> Asset management and risk assessment determined the exposure of public-facing web services.</li>
+    <li><strong>Protect:</strong> Rate-limiting and firewall rules were validated to mitigate traffic spikes.</li>
+    <li><strong>Detect:</strong> Intrusion detection systems triggered alerts based on SYN rate thresholds.</li>
+    <li><strong>Respond:</strong> SOC team initiated incident response playbooks, capturing evidence and mitigating the source.</li>
+    <li><strong>Recover:</strong> System reboot procedures and communication plans ensured service restoration and transparency.</li>
+  </ul>
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Wireshark for packet inspection</li>
+    <li>Firewall rule verification tools</li>
+    <li>NIST CSF categories and subcategories worksheet</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>
+    This lab helped build a real-world mindset for identifying and mitigating DDoS activity and using a structured framework like the NIST CSF for incident response. 
+    Integrating tactical analysis with policy-driven practices ensures a complete and repeatable cybersecurity response.
+  </p>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">← Back to Portfolio</a>
+  </p>
+</body>
+</html>
