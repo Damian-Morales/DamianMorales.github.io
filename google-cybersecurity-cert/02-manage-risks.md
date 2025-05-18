@@ -33,10 +33,10 @@ This course taught me how to identify and manage risks, threats, and vulnerabili
 
 ##  Hands-On Activity
 
-To reinforce the key concepts from this course, I completed several hands-on labs and incident report exercises focused on real-world cybersecurity scenarios:
-- Conducted a fictional internal security audit (Botium Toys case study).
-- Completed a controls and compliance checklist to assess risks and system readiness.
-- Developed a risk mitigation plan using NIST RMF principles.
+To apply the concepts covered in this course, I completed a hands-on compliance checklist activity focused on internal security controls:
+- [Botium Toys Controls & Compliance Checklist](botium%20controls%20compliance.md)
+
+This exercise helped me evaluate the effectiveness of organizational security measures, assess risk management practices, and identify areas of improvement in alignment with cybersecurity compliance standards.
 
 ---
 
