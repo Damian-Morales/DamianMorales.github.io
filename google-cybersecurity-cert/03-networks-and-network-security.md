@@ -44,7 +44,7 @@ To reinforce these topics, I completed several hands-on incident report analyses
 - [Malware Redirection Incident Report](malware%20redirection%20report.md)  
 - [DNS icmp analysis](dns%20icmp%20analysis.md)
 
-These exercises helped me apply concepts such as traffic analysis, TCP/IP behavior, DNS resolution, and layered security defenses in practical scenarios.
+These activities helped me apply practical knowledge of TCP/IP behavior, HTTP communication, DNS resolution, ICMP traffic analysis, and protocol-layer vulnerabilities. By investigating and documenting these events, I developed stronger skills in packet inspection, incident response, and assessing network threats.
 
 ---
 
