@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNS & HTTP Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>DNS & HTTP Analysis Report</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This lab involved analyzing DNS and HTTP traffic using Wireshark to investigate suspicious network behavior.
+    The goal was to identify any anomalies related to DNS queries, TCP communication, and HTTP requests, and to determine whether a cyber incident had occurred.
+    The full log used for this analysis is available here:
+    <a href="https://docs.google.com/spreadsheets/d/1enpRzrIao3J2Lp2tOI0hmu1Cu7D7CjLGhFAiTiR9J64/edit?gid=1522826613#gid=1522826613" target="_blank">
+      Wireshark Traffic Log
+    </a>.
+  </p>
+
+  <h2>Scenario Summary</h2>
+  <p>
+    While analyzing the traffic logs, I observed numerous TCP SYN packets being sent from a single source IP to the destination web server, suggesting a TCP SYN flood attempt.
+    This pattern was coupled with repeated HTTP GET requests that targeted specific resources. The HTTP traffic appeared automated and possibly linked to a bot or malicious scanner.
+  </p>
+
+  <h2>Key Findings</h2>
+  <ul>
+    <li>Excessive TCP SYN packets to port 80 with no ACK responses</li>
+    <li>Abnormal spike in DNS queries to a specific domain</li>
+    <li>High-frequency HTTP GET requests from a consistent source IP</li>
+  </ul>
+
+  <h2>Tools Used</h2>
+  <ul>
+    <li>Wireshark</li>
+    <li>TCP stream analysis</li>
+    <li>DNS and HTTP filters</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>
+    The network behavior aligned with characteristics of a SYN flood attack targeting port 80, accompanied by automated HTTP requests possibly related to reconnaissance or
+    denial-of-service activity. This lab reinforced my ability to dissect protocol-level activity, use packet filters effectively, and develop incident reports based on real packet data.
+  </p>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">← Back to Portfolio</a>
+  </p>
+</body>
+</html>
