@@ -34,7 +34,7 @@ This course taught me how to identify and manage risks, threats, and vulnerabili
 ##  Hands-On Activity
 
 To apply the concepts covered in this course, I completed a hands-on compliance checklist activity focused on internal security controls:
-- [Botium Toys Controls & Compliance Checklist](botium%20controls%20compliance.md)
+- [Botium Toys Controls & Compliance Checklist](botium-controls-compliance.md)
 
 This exercise helped me evaluate the effectiveness of organizational security measures, assess risk management practices, and identify areas of improvement in alignment with cybersecurity compliance standards.
 
