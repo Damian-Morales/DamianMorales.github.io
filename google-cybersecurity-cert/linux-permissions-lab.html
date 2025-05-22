@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux File Permissions and Authorization Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        ul, ol { padding-left: 20px; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Linux File Permissions and Authorization Lab</h1>
+
+    <h2>Activity Overview</h2>
+    <p>
+        In this lab, I used Linux commands to configure authorization by setting proper file and directory permissions.
+        I explored how permissions control access to files and why that’s essential in preventing unauthorized users from reading or modifying sensitive data.
+    </p>
+    <p>
+        I also gained insight into how ownership and group memberships affect who can access and edit specific files and directories in a multi-user Linux system.
+    </p>
+
+    <h2>Scenario</h2>
+    <p>
+        My task was to audit and configure the file permissions within the <code>/home/researcher2/projects</code> directory for the <code>researcher2</code> user, 
+        who belongs to the <code>research_team</code> group.
+    </p>
+    <ol>
+        <li>I checked the user and group permissions on all files in the <code>projects</code> directory, including hidden files.</li>
+        <li>I identified any files with incorrect or overly permissive access settings and used commands like <code>chmod</code> and <code>chown</code> to correct them.</li>
+        <li>I also reviewed the <code>/home/researcher2/projects/drafts</code> directory and modified its permissions to ensure no unauthorized access was possible.</li>
+    </ol>
+    <p>
+        This hands-on experience reinforced my understanding of managing authorization securely in Linux environments.
+    </p>
+
+    <h2>What I Learned</h2>
+    <p>
+        I now feel confident in using the following Linux commands:
+    </p>
+    <ul>
+        <li>Examining file and directory permissions using <code>ls -l</code> and <code>ls -la</code></li>
+        <li>Changing file permissions using <code>chmod</code></li>
+        <li>Changing file and directory ownership using <code>chown</code></li>
+    </ul>
+    <p>
+        These skills are essential for protecting sensitive information and upholding system integrity in any cybersecurity role.
+    </p>
+
+    <p style="text-align:center; margin-top: 2rem;">
+        <a href="../index.html">&larr; Back to Portfolio</a>
+    </p>
+</body>
+</html>
