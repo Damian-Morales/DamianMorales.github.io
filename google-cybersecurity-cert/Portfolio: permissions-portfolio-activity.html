@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Permissions Portfolio Activity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        ul, ol { padding-left: 20px; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>File Permissions Portfolio Activity</h1>
+
+    <h2>Project Description</h2>
+    <p>
+        In this activity, I examined and updated Linux file permissions in a simulated enterprise environment. 
+        I ensured that sensitive data in the <code>/home/researcher2/projects</code> directory was properly protected 
+        by using commands like <code>ls -la</code>, <code>chmod</code>, and <code>chown</code>. This strengthened my 
+        understanding of Linux-based access control.
+    </p>
+
+    <h2>Check File and Directory Details</h2>
+    <p>
+        I used the following command to list all permissions:
+    </p>
+    <pre><code>ls -la /home/researcher2/projects</code></pre>
+    <p>This revealed the following files and their permissions:</p>
+    <ul>
+        <li><strong>project_k.txt</strong><br>
+            - User: read, write<br>
+            - Group: read, write<br>
+            - Other: read, write
+        </li>
+        <li><strong>project_m.txt</strong><br>
+            - User: read, write<br>
+            - Group: read<br>
+            - Other: none
+        </li>
+        <li><strong>project_r.txt</strong><br>
+            - User: read, write<br>
+            - Group: read, write<br>
+            - Other: read
+        </li>
+        <li><strong>project_t.txt</strong><br>
+            - User: read, write<br>
+            - Group: read, write<br>
+            - Other: read
+        </li>
+        <li><strong>.project_x.txt</strong><br>
+            - User: read, write<br>
+            - Group: write<br>
+            - Other: none
+        </li>
+    </ul>
+
+    <h2>Describe the Permissions String</h2>
+    <p>
+        Example: <code>-rw-r--r--</code>
+        <ul>
+            <li><code>-</code>: regular file</li>
+            <li><code>rw-</code>: owner has read and write</li>
+            <li><code>r--</code>: group has read-only</li>
+            <li><code>r--</code>: others have read-only</li>
+        </ul>
+    </p>
+
+    <h2>Change File Permissions</h2>
+    <p>
+        I removed write access for "other" on <code>project_k.txt</code> using:
+    </p>
+    <pre><code>chmod o-w project_k.txt</code></pre>
+    <p>
+        This ensures that unauthorized users cannot alter the file.
+    </p>
+
+    <h2>Change File Permissions on a Hidden File</h2>
+    <p>
+        I secured <code>.project_x.txt</code> by removing all permissions from others and giving read-only to user and group:
+    </p>
+    <pre><code>chmod u-w,g-w,g+r .project_x.txt</code></pre>
+
+    <h2>Change Directory Permissions</h2>
+    <p>
+        I changed permissions for the <code>drafts</code> directory to limit access to <code>group</code> from drafts directory:
+    </p>
+    <pre><code>chmod g-x drafts</code></pre>
+
+    <h2>Summary</h2>
+    <p>
+        Through this project, I demonstrated the ability to audit and manage Linux file permissions using commands such as 
+        <code>ls -la</code> and <code>chmod</code>. I protected sensitive project files by restricting access and verifying permission configurations. 
+        This exercise improved my readiness for real-world cybersecurity scenarios involving multi-user environments.
+    </p>
+
+    <p style="text-align:center; margin-top: 2rem;">
+        <a href="../index.html">&larr; Back to Portfolio</a>
+    </p>
+</body>
+</html>
