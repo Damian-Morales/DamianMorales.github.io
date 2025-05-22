@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Managing Linux Users Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        ul, ol { padding-left: 20px; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Managing Linux Users Lab</h1>
+
+    <h2>Activity Overview</h2>
+    <p>
+        This lab focused on user management in Linux. I learned the difference between <strong>authorization</strong> and <strong>authentication</strong>,
+        and how to control system access for users through the command line. I used commands like <code>useradd</code>, <code>usermod</code>, <code>userdel</code>, and <code>chown</code>
+        to manage users and their permissions. These actions are essential to ensuring that only appropriate individuals can access or modify sensitive system resources.
+    </p>
+
+    <h2>Scenario</h2>
+    <p>
+        A new employee, <code>researcher9</code>, joined the organization. My task was to:
+    </p>
+    <ol>
+        <li>Add the user <code>researcher9</code> to the system.</li>
+        <li>Assign the user to their primary group.</li>
+        <li>Use <code>chown</code> to transfer file ownership.</li>
+        <li>Add the user to a supplementary group.</li>
+        <li>Delete the user from the system after completion.</li>
+    </ol>
+    <p>
+        I executed each of these steps using administrative privileges via <code>sudo</code> to simulate real-world user management tasks.
+    </p>
+
+    <h2>What I Learned</h2>
+    <ul>
+        <li>How to add new users with <code>sudo useradd researcher9</code></li>
+        <li>How to modify file owndership using <code>sudo chown researcher9 /home/researcher2/projects/project_r.txt</code></li>
+        <li>How to Add the user to a secondary group <code>sudo usermod -a -G sales_team researcher9</code></li>
+        <li>How to delete a user with <code>sudo userdel researcher9</code></li>
+        <li>The importance of restricting access only to those with a legitimate need</li>
+    </ul>
+
+    <p>
+        This lab provided hands-on experience in essential administrative tasks that every security analyst should be comfortable performing in a Linux environment.
+    </p>
+
+    <p style="text-align:center; margin-top: 2rem;">
+        <a href="../index.html">&larr; Back to Portfolio</a>
+    </p>
+</body>
+</html>
