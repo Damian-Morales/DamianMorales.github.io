@@ -1,97 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apply Filters to SQL Queries</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #003366;
-    }
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 2rem;
-    }
-    a {
-      color: #0645ad;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Apply Filters to SQL Queries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #2c3e50; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-  <h1>Apply Filters to SQL Queries</h1>
+    <h1>Apply Filters to SQL Queries</h1>
 
-  <h2>Project Description</h2>
-  <p>
-    This activity demonstrates my ability to write SQL queries that apply multiple filtering techniques to investigate potential security issues. I used filters such as <code>AND</code>, <code>OR</code>, <code>NOT</code>, and <code>LIKE</code> across two datasets: <code>log_in_attempts</code> and <code>employees</code>.
-  </p>
+    <h2>Project Description</h2>
+    <p>
+        This activity demonstrates my ability to write SQL queries that apply multiple filtering techniques to investigate potential security issues.
+        I used filters such as <code>AND</code>, <code>OR</code>, <code>NOT</code>, and <code>LIKE</code> across two datasets: <code>log_in_attempts</code> and <code>employees</code>.
+    </p>
 
-  <h2>Queries and Explanations</h2>
+    <h2>Queries and Explanations</h2>
 
-  <h3>1. After Hours Failed Logins</h3>
-  <p>
-    <code>SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;</code>
-  </p>
-  <p>
-    This query filters for all failed login attempts that happened after 6:00 PM. It uses <code>AND</code> to combine time and success conditions.
-  </p>
+    <h3>1. After Hours Failed Logins</h3>
+    <pre><code>SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;</code></pre>
+    <p>This query filters for all failed login attempts after 6:00 PM, combining time and success conditions using <code>AND</code>.</p>
 
-  <h3>2. Login Attempts on Specific Dates</h3>
-  <p>
-    <code>SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';</code>
-  </p>
-  <p>
-    This query uses <code>OR</code> to retrieve logins from two specific dates, allowing investigation of a security incident timeline.
-  </p>
+    <h3>2. Login Attempts on Specific Dates</h3>
+    <pre><code>SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';</code></pre>
+    <p>This query uses <code>OR</code> to return login attempts from both May 8 and May 9, 2022.</p>
 
-  <h3>3. Logins Outside of Mexico</h3>
-  <p>
-    <code>SELECT * FROM log_in_attempts WHERE country NOT LIKE 'MEX%';</code>
-  </p>
-  <p>
-    This uses <code>NOT</code> with <code>LIKE</code> to exclude entries from Mexico, capturing foreign login attempts.
-  </p>
+    <h3>3. Logins Outside of Mexico</h3>
+    <pre><code>SELECT * FROM log_in_attempts WHERE country NOT LIKE 'MEX%';</code></pre>
+    <p>This query uses <code>NOT</code> and <code>LIKE</code> to exclude logins from Mexico and find foreign attempts.</p>
 
-  <h3>4. Marketing Employees in East Offices</h3>
-  <p>
-    <code>SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';</code>
-  </p>
-  <p>
-    This query filters for Marketing employees who are located in offices that begin with "East", using both <code>AND</code> and <code>LIKE</code>.
-  </p>
+    <h3>4. Marketing Employees in East Offices</h3>
+    <pre><code>SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';</code></pre>
+    <p>This query filters for Marketing employees in East office locations using <code>AND</code> and pattern matching with <code>LIKE</code>.</p>
 
-  <h3>5. Employees in Finance or Sales</h3>
-  <p>
-    <code>SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';</code>
-  </p>
-  <p>
-    This simple <code>OR</code> filter identifies employees in either Finance or Sales, often grouped for administrative reviews.
-  </p>
+    <h3>5. Employees in Finance or Sales</h3>
+    <pre><code>SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';</code></pre>
+    <p>This filter returns all employees in either Finance or Sales departments using <code>OR</code>.</p>
 
-  <h3>6. Employees Not in IT</h3>
-  <p>
-    <code>SELECT * FROM employees WHERE department != 'Information Technology';</code>
-  </p>
-  <p>
-    This query retrieves all employees except those in IT. This is useful when targeting departments that still require updates.
-  </p>
+    <h3>6. Employees Not in IT</h3>
+    <pre><code>SELECT * FROM employees WHERE NOT department = 'Information Technology';</code></pre>
+    <p>This final query filters out the IT department to return all other employees using <code>!=</code>.</p>
 
-  <h2>Summary</h2>
-  <p>
-    This lab helped reinforce my understanding of SQL filtering using <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>LIKE</code>, and specific date/time conditions. These skills apply to real-world threat analysis, data filtering, and compliance investigations in a security role.
-  </p>
+    <h2>Summary</h2>
+    <p>
+        This portfolio activity demonstrates practical knowledge of filtering SQL queries using <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>LIKE</code>,
+        and date/time conditions. These queries reflect how security analysts detect suspicious behavior and investigate access patterns using structured query logic.
+    </p>
 
-  <p style="text-align:center; margin-top: 2rem;">
-    <a href="../index.html">&larr; Back to Portfolio</a>
-  </p>
+    <p style="text-align:center; margin-top: 2rem;">
+        <a href="../index.html">&larr; Back to Portfolio</a>
+    </p>
 </body>
 </html>
