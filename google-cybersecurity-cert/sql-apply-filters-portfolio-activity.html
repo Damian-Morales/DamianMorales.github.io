@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply Filters to SQL Queries</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+    h1, h2 { color: #003366; }
+    code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+    p.note { font-style: italic; color: #555; }
+    a { color: #0645ad; }
+  </style>
+</head>
+<body>
+  <h1>Apply Filters to SQL Queries</h1>
+
+  <p><strong>Project Description:</strong>  
+  This activity demonstrates my ability to write SQL queries that apply multiple filtering techniques to investigate potential security issues. I used filters such as <code>AND</code>, <code>OR</code>, <code>NOT</code>, and <code>LIKE</code> across two datasets: <code>log_in_attempts</code> and <code>employees</code>.</p>
+
+  <h2>Queries and Explanations</h2>
+
+  <h3>1. After Hours Failed Logins</h3>
+  <p><code>SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;</code></p>
+  <p>This query filters for all failed login attempts that happened after 6:00 PM. It uses <code>AND</code> to combine time and success conditions.</p>
+
+  <h3>2. Login Attempts on Specific Dates</h3>
+  <p><code>SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';</code></p>
+  <p>This query uses <code>OR</code> to retrieve logins from two specific dates, allowing investigation of a security incident timeline.</p>
+
+  <h3>3. Logins Outside of Mexico</h3>
+  <p><code>SELECT * FROM log_in_attempts WHERE country NOT LIKE 'MEX%';</code></p>
+  <p>This uses <code>NOT</code> with <code>LIKE</code> to exclude entries from Mexico, capturing foreign login attempts.</p>
+
+  <h3>4. Marketing Employees in East Offices</h3>
+  <p><code>SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';</code></p>
+  <p>This query filters for Marketing employees who are located in offices that begin with "East", using both <code>AND</code> and <code>LIKE</code>.</p>
+
+  <h3>5. Employees in Finance or Sales</h3>
+  <p><code>SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';</code></p>
+  <p>This simple <code>OR</code> filter identifies employees in either Finance or Sales, often grouped for administrative reviews.</p>
+
+  <h3>6. Employees Not in IT</h3>
+  <p><code>SELECT * FROM employees WHERE NOI department = 'Information Technology';</code></p>
+  <p>This query retrieves all employees except those in IT. This is useful when targeting departments that still require updates.</p>
+
+  <h2>Summary</h2>
+  <p>This lab helped reinforce my understanding of SQL filtering using <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>LIKE</code>, and specific date/time conditions. These skills apply to real-world threat analysis, data filtering, and compliance investigations in a security role.</p>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+</body>
+</html>
