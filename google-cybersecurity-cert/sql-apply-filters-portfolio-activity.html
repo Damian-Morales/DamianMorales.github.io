@@ -1,61 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Apply Filters to SQL Queries</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
-        h1, h2, h3 { color: #2c3e50; }
-        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
-        pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
-        a { color: #2980b9; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Apply Filters to SQL Queries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    code, pre { background-color: #f4f4f4; padding: 4px 6px; border-radius: 4px; font-family: monospace; }
+    pre { overflow-x: auto; padding: 10px; margin-top: 0; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-    <h1>Apply Filters to SQL Queries</h1>
 
-    <h2>Project Description</h2>
-    <p>
-        This activity demonstrates my ability to write SQL queries that apply multiple filtering techniques to investigate potential security issues.
-        I used filters such as <code>AND</code>, <code>OR</code>, <code>NOT</code>, and <code>LIKE</code> across two datasets: <code>log_in_attempts</code> and <code>employees</code>.
-    </p>
+  <h1>Apply Filters to SQL Queries</h1>
 
-    <h2>Queries and Explanations</h2>
+  <h2>Project description</h2>
+  <p>
+    My organization is working to make their system more secure. It is my job to ensure the system is safe, investigate all potential security issues, and update employee computers as needed. The following steps provide examples of how I used SQL with filters to perform security-related tasks.
+  </p>
 
-    <h3>1. After Hours Failed Logins</h3>
-    <pre><code>SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;</code></pre>
-    <p>This query filters for all failed login attempts after 6:00 PM, combining time and success conditions using <code>AND</code>.</p>
+  <h2>Retrieve after hours failed login attempts</h2>
+  <p>
+    There was a potential security incident that occurred after business hours (after 18:00). All after-hours login attempts that failed need to be investigated.
+  </p>
+  <p>The following code demonstrates how I created a SQL query to filter for failed login attempts that occurred after business hours.</p>
+  <pre><code>SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;</code></pre>
+  <p>
+    This query filters for failed login attempts that occurred after 18:00. First, I started by selecting all data from the <code>log_in_attempts</code> table. Then, I used a WHERE clause with an AND operator to output only login attempts after 18:00 that were unsuccessful.
+  </p>
 
-    <h3>2. Login Attempts on Specific Dates</h3>
-    <pre><code>SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';</code></pre>
-    <p>This query uses <code>OR</code> to return login attempts from both May 8 and May 9, 2022.</p>
+  <h2>Retrieve login attempts on specific dates</h2>
+  <p>
+    A suspicious event occurred on 2022-05-09. Any login activity that happened on 2022-05-09 or the day before needs to be investigated.
+  </p>
+  <p>The following code demonstrates how I created a SQL query to filter for login attempts on specific dates.</p>
+  <pre><code>SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';</code></pre>
+  <p>
+    This query returns login attempts from 2022-05-08 and 2022-05-09. I used a WHERE clause with an OR operator to return entries that matched either date.
+  </p>
 
-    <h3>3. Logins Outside of Mexico</h3>
-    <pre><code>SELECT * FROM log_in_attempts WHERE country NOT LIKE 'MEX%';</code></pre>
-    <p>This query uses <code>NOT</code> and <code>LIKE</code> to exclude logins from Mexico and find foreign attempts.</p>
+  <h2>Retrieve login attempts outside of Mexico</h2>
+  <p>
+    After investigating the organization’s data, I found unusual login attempts occurring outside of Mexico.
+  </p>
+  <p>The following code demonstrates how I filtered for login attempts outside of Mexico.</p>
+  <pre><code>SELECT * FROM log_in_attempts WHERE country NOT LIKE 'MEX%';</code></pre>
+  <p>
+    This query returns logins from any country except Mexico. I used NOT with LIKE and the pattern <code>'MEX%'</code> to exclude values that start with “MEX”, which includes “MEX” and “MEXICO”.
+  </p>
 
-    <h3>4. Marketing Employees in East Offices</h3>
-    <pre><code>SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';</code></pre>
-    <p>This query filters for Marketing employees in East office locations using <code>AND</code> and pattern matching with <code>LIKE</code>.</p>
+  <h2>Retrieve employees in Marketing</h2>
+  <p>
+    My team wants to update computers for Marketing employees in the East building.
+  </p>
+  <p>The following code demonstrates how I filtered for those employees.</p>
+  <pre><code>SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';</code></pre>
+  <p>
+    This query returns all employees in the Marketing department whose offices begin with "East". I used AND to combine both conditions.
+  </p>
 
-    <h3>5. Employees in Finance or Sales</h3>
-    <pre><code>SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';</code></pre>
-    <p>This filter returns all employees in either Finance or Sales departments using <code>OR</code>.</p>
+  <h2>Retrieve employees in Finance or Sales</h2>
+  <p>
+    The machines for Finance and Sales employees need a different update.
+  </p>
+  <p>The following code demonstrates how I filtered for these departments.</p>
+  <pre><code>SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';</code></pre>
+  <p>
+    This query uses OR to return employees from either the Finance or Sales departments.
+  </p>
 
-    <h3>6. Employees Not in IT</h3>
-    <pre><code>SELECT * FROM employees WHERE NOT department = 'Information Technology';</code></pre>
-    <p>This final query filters out the IT department to return all other employees using <code>!=</code>.</p>
+  <h2>Retrieve all employees not in IT</h2>
+  <p>
+    Another security update is needed for employees not in the Information Technology department.
+  </p>
+  <p>The following demonstrates how I filtered for them.</p>
+  <pre><code>SELECT * FROM employees WHERE NOT department = 'Information Technology';</code></pre>
+  <p>
+    This query excludes employees from IT, returning only those in other departments.
+  </p>
 
-    <h2>Summary</h2>
-    <p>
-        This portfolio activity demonstrates practical knowledge of filtering SQL queries using <code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>LIKE</code>,
-        and date/time conditions. These queries reflect how security analysts detect suspicious behavior and investigate access patterns using structured query logic.
-    </p>
+  <h2>Summary</h2>
+  <p>
+    I applied filters to SQL queries to gather specific information from two tables: <code>log_in_attempts</code> and <code>employees</code>. I used <code>AND</code>, <code>OR</code>, <code>NOT</code>, and <code>LIKE</code> operators, and the percent sign (%) as a wildcard for pattern matching. These filters helped me investigate security incidents and plan system updates.
+  </p>
 
-    <p style="text-align:center; margin-top: 2rem;">
-        <a href="../index.html">&larr; Back to Portfolio</a>
-    </p>
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
 </body>
 </html>
