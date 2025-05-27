@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asset Classification Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .category-table {
+      max-width: 400px;
+      margin-top: 2rem;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Asset Classification Lab</h1>
+
+  <h2>Overview</h2>
+  <p>
+    In this lab, I created an asset inventory for a small business home network. I identified connected devices, assessed their access methods, owners, and locations, and classified their sensitivity based on confidentiality and exposure risk.
+  </p>
+
+  <h2>Home Network Device Inventory</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Network Access</th>
+        <th>Owner</th>
+        <th>Location</th>
+        <th>Notes</th>
+        <th>Sensitivity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Network router</td>
+        <td>Continuous</td>
+        <td>Internet service provider (ISP)</td>
+        <td>On-premises</td>
+        <td>Has a 2.4 GHz and 5 GHz connection. All devices connect to the 5 GHz frequency.</td>
+        <td>Confidential</td>
+      </tr>
+      <tr>
+        <td>Desktop</td>
+        <td>Occasional</td>
+        <td>Homeowner</td>
+        <td>On-premises</td>
+        <td>Contains private information, like photos.</td>
+        <td>Restricted</td>
+      </tr>
+      <tr>
+        <td>Guest smartphone</td>
+        <td>Occasional</td>
+        <td>Friend</td>
+        <td>On and off-premises</td>
+        <td>Connects to my home network.</td>
+        <td>Internal-only</td>
+      </tr>
+      <tr>
+        <td>External hard drive</td>
+        <td>Occasional</td>
+        <td>Homeowner</td>
+        <td>On-premises</td>
+        <td>Contains music and movies.</td>
+        <td>Confidential</td>
+      </tr>
+      <tr>
+        <td>Streaming media player</td>
+        <td>Continuous</td>
+        <td>Homeowner</td>
+        <td>On-premises</td>
+        <td>Payment card information is stored for movie rentals.</td>
+        <td>Internal-only</td>
+      </tr>
+      <tr>
+        <td>Portable game console</td>
+        <td>Occasional</td>
+        <td>Friend</td>
+        <td>On and off-premises</td>
+        <td>Has a camera and microphone.</td>
+        <td>Internal-only</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Sensitivity Categories</h2>
+  <table class="category-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Access Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Restricted</td>
+        <td>Need-to-know</td>
+      </tr>
+      <tr>
+        <td>Confidential</td>
+        <td>Limited to specific users</td>
+      </tr>
+      <tr>
+        <td>Internal-only</td>
+        <td>Users on-premises</td>
+      </tr>
+      <tr>
+        <td>Public</td>
+        <td>Anyone</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="back-link">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </div>
+
+</body>
+</html>
