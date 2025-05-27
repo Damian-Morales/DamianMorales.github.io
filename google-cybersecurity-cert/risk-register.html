@@ -2,46 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Risk Register - Risk Assessment Activity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Register</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
-    h1, h2 { color: #2c3e50; }
-    code, pre { background-color: #f4f4f4; padding: 4px 6px; border-radius: 4px; font-family: monospace; }
-    a { color: #2980b9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ul { padding-left: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .note {
+      background-color: #f9f9f9;
+      border-left: 4px solid #aaa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    a {
+      color: #0066cc;
+    }
   </style>
 </head>
 <body>
 
   <h1>Risk Register</h1>
 
-  <h2>Project description</h2>
+  <h2>Operational Environment</h2>
   <p>
-    In this activity, I practiced performing a risk assessment by evaluating vulnerabilities that commonly threaten business operations. Then, I assigned risk scores to each vulnerability to prioritize cybersecurity efforts.
+    The bank is located in a coastal area with low crime rates. Many people and systems handle the bank’s data—100 on-premise employees and 20 remote employees. The customer base of the bank includes 2,000 individual accounts and 200 commercial accounts. The bank’s services are marketed by a professional sports team and ten local businesses in the community. There are strict financial regulations that require the bank to secure their data and funds, like having enough cash available each day to meet Federal Reserve requirements.
   </p>
-  <p>
-    The scenario involved a cybersecurity team at a commercial bank conducting a risk assessment to secure the most vulnerable assets. I used a risk register to evaluate five major risks using the formula:
-  </p>
-  <p style="font-weight: bold;">Likelihood × Severity = Priority</p>
 
-  <h2>Steps completed</h2>
+  <h2>Risk Register Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Risk(s)</th>
+        <th>Description</th>
+        <th>Likelihood</th>
+        <th>Severity</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Funds</td>
+        <td>Business email compromise</td>
+        <td>An employee is tricked into sharing confidential information.</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Funds</td>
+        <td>Compromised user database</td>
+        <td>Customer data is poorly encrypted.</td>
+        <td>2</td>
+        <td>3</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Funds</td>
+        <td>Financial records leak</td>
+        <td>A database server of backed-up data is publicly accessible.</td>
+        <td>3</td>
+        <td>3</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>Funds</td>
+        <td>Theft</td>
+        <td>The bank's safe is left unlocked.</td>
+        <td>1</td>
+        <td>3</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>Funds</td>
+        <td>Supply chain disruption</td>
+        <td>Delivery delays due to natural disasters.</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Notes</h2>
+  <div class="note">
+    Doing business with other companies might increase the risks to data since it presents other avenues for the information to be compromised. The risk of theft is important but might not be a priority because the bank is in an area with low crime rates.
+  </div>
+
+  <h2>Risk Register Guidance</h2>
   <ul>
-    <li>Accessed and used the provided <a href="https://docs.google.com/spreadsheets/d/1kdMs5ejteq9ZyH9j4pdvSO2kSOVGeS5hKa4OWGrvlCU/template/preview" target="_blank">risk register template</a>.</li>
-    <li>Evaluated 5 risks: Business email compromise, Compromised user database, Financial records leak, Theft, and Supply chain attack.</li>
-    <li>Scored each for likelihood and severity.</li>
-    <li>Calculated priority scores (1–9) and documented notes for each risk scenario.</li>
+    <li><strong>Asset:</strong> The asset at risk of being harmed, damaged, or stolen.</li>
+    <li><strong>Risk(s):</strong> A potential risk to the organization’s information systems and data.</li>
+    <li><strong>Description:</strong> A vulnerability that might lead to a security incident.</li>
+    <li><strong>Likelihood:</strong> Scale of 1–3 representing chance of exploitation (1 = low, 3 = high).</li>
+    <li><strong>Severity:</strong> Scale of 1–3 representing business impact (1 = low, 3 = high).</li>
+    <li><strong>Priority:</strong> Calculated as <strong>Likelihood × Severity</strong>.</li>
   </ul>
 
-  <h2>Artifacts</h2>
-  <ul>
-    <li><a href="Risk register - Google Docs.html" target="_blank">📄 Completed Risk Register (HTML Export)</a></li>
-  </ul>
+  <h2>Risk Matrix</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Low (1)</th>
+        <th>Moderate (2)</th>
+        <th>Catastrophic (3)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Certain (3)</th>
+        <td>3</td>
+        <td>6</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <th>Likely (2)</th>
+        <td>2</td>
+        <td>4</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <th>Rare (1)</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p style="text-align:center; margin-top: 2rem;">
+  <div class="back-link">
     <a href="../index.html">&larr; Back to Portfolio</a>
-  </p>
+  </div>
 
 </body>
 </html>
