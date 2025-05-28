@@ -1,74 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Leak Privacy Review</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <title>Risk Register Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      color: #2c3e50;
+      background-color: #ffffff;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: 600;
+    }
+    .note {
+      background-color: #f9f9f9;
+      border-left: 4px solid #2980b9;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Data Leak Privacy Review</h1>
-    
-    <h2>Course:</h2>
-    <p>Google Cybersecurity Certificate - Course 5</p>
 
-    <h2>Lab Type:</h2>
-    <p>Data Privacy Review Activity</p>
+  <h1>Risk Register Lab</h1>
 
-    <h2>Overview</h2>
-    <p>
-      In this lab, I reviewed a data privacy risk event to determine whether the company followed proper access control practices. The goal was to evaluate how well information privacy is managed and to propose control improvements, focusing on implementing the <strong>principle of least privilege</strong>.
-    </p>
+  <h2>Overview</h2>
+  <p>
+    In this lab, I was introduced to the purpose and structure of a cybersecurity risk register. I explored how organizations identify and manage risks to assets by assessing their likelihood, impact, and existing controls. The exercise included reviewing sample risk scenarios and documenting findings in a structured table.
+  </p>
 
-    <h2>Scenario</h2>
-    <p>
-      A data exposure occurred at an educational tech company when an employee unintentionally shared confidential documents with an external contact. The files were part of a folder meant for internal marketing use, but access had not been properly restricted.
-    </p>
-    <p>
-      My role was to assess the cause, review current privacy policies and controls, and suggest improvements to prevent future incidents.
-    </p>
+  <h2>Objective</h2>
+  <p>
+    Develop a working knowledge of how to create and interpret a cybersecurity risk register by evaluating common risks and suggesting relevant mitigation strategies.
+  </p>
 
-    <h2>Data Privacy Assessment</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Control</th>
-          <th>Least Privilege</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Issue(s)</strong></td>
-          <td><em>A shared folder intended for internal use was exposed to external users due to overly broad access permissions. The lack of oversight led to the unintentional release of sensitive materials.</em></td>
-        </tr>
-        <tr>
-          <td><strong>Review</strong></td>
-          <td>
-            NIST SP 800-53: AC-6 recommends applying least privilege by assigning users only the permissions necessary to perform their tasks. It also advises routine audits to ensure compliance and proper data protection.
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Recommendation(s)</strong></td>
-          <td>
-            <ul>
-              <li>Enforce stricter access permissions based on role and task necessity.</li>
-              <li>Implement recurring access reviews to remove outdated or excessive permissions.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Justification</strong></td>
-          <td>
-            Limiting access and performing regular audits helps minimize the risk of unauthorized data exposure. These practices reduce the chances of internal oversharing and help safeguard sensitive company information.
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Completed Risk Register Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Risk</th>
+        <th>Likelihood</th>
+        <th>Impact</th>
+        <th>Risk Rating</th>
+        <th>Safeguards</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Employee Data</td>
+        <td>Unauthorized access due to weak passwords</td>
+        <td>High</td>
+        <td>High</td>
+        <td>High</td>
+        <td>Enforce strong password policies and two-factor authentication</td>
+      </tr>
+      <tr>
+        <td>Customer Records</td>
+        <td>Phishing attack leading to data breach</td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Security awareness training and email filtering tools</td>
+      </tr>
+      <tr>
+        <td>Internal Network</td>
+        <td>Malware infection from external USB devices</td>
+        <td>Low</td>
+        <td>Medium</td>
+        <td>Low</td>
+        <td>Restrict use of external media and implement antivirus scanning</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <p style="text-align:center; margin-top: 2rem;">
-      <a href="../index.html">&larr; Back to Portfolio</a>
-    </p>
+  <h2>Conclusion</h2>
+  <p>
+    This exercise provided a clear understanding of how to prioritize cybersecurity risks and document them effectively. I now feel more confident in my ability to analyze risk scenarios, assess severity, and propose meaningful controls that support an organization's security posture.
+  </p>
+
+  <div class="back-link">
+    <a href="../index.html">&larr; Back to Portfolio</a>
   </div>
+
 </body>
 </html>
