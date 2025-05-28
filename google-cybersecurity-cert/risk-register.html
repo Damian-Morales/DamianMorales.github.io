@@ -2,164 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Risk Register</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background-color: #f4f4f4;
-    }
-    .note {
-      background-color: #f9f9f9;
-      border-left: 4px solid #aaa;
-      padding: 1rem;
-      margin: 1.5rem 0;
-    }
-    .back-link {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    a {
-      color: #0066cc;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Leak Privacy Review</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <div class="container">
+    <h1>Data Leak Privacy Review</h1>
+    
+    <h2>Course:</h2>
+    <p>Google Cybersecurity Certificate - Course 5</p>
 
-  <h1>Risk Register</h1>
+    <h2>Lab Type:</h2>
+    <p>Data Privacy Review Activity</p>
 
-  <h2>Operational Environment</h2>
-  <p>
-    The bank is located in a coastal area with low crime rates. Many people and systems handle the bank’s data—100 on-premise employees and 20 remote employees. The customer base of the bank includes 2,000 individual accounts and 200 commercial accounts. The bank’s services are marketed by a professional sports team and ten local businesses in the community. There are strict financial regulations that require the bank to secure their data and funds, like having enough cash available each day to meet Federal Reserve requirements.
-  </p>
+    <h2>Overview</h2>
+    <p>
+      In this lab, I reviewed a data privacy risk event to determine whether the company followed proper access control practices. The goal was to evaluate how well information privacy is managed and to propose control improvements, focusing on implementing the <strong>principle of least privilege</strong>.
+    </p>
 
-  <h2>Risk Register Table</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Asset</th>
-        <th>Risk(s)</th>
-        <th>Description</th>
-        <th>Likelihood</th>
-        <th>Severity</th>
-        <th>Priority</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Funds</td>
-        <td>Business email compromise</td>
-        <td>An employee is tricked into sharing confidential information.</td>
-        <td>2</td>
-        <td>2</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>Funds</td>
-        <td>Compromised user database</td>
-        <td>Customer data is poorly encrypted.</td>
-        <td>2</td>
-        <td>3</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>Funds</td>
-        <td>Financial records leak</td>
-        <td>A database server of backed-up data is publicly accessible.</td>
-        <td>3</td>
-        <td>3</td>
-        <td>9</td>
-      </tr>
-      <tr>
-        <td>Funds</td>
-        <td>Theft</td>
-        <td>The bank's safe is left unlocked.</td>
-        <td>1</td>
-        <td>3</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Funds</td>
-        <td>Supply chain disruption</td>
-        <td>Delivery delays due to natural disasters.</td>
-        <td>1</td>
-        <td>2</td>
-        <td>2</td>
-      </tr>
-    </tbody>
-  </table>
+    <h2>Scenario</h2>
+    <p>
+      A data exposure occurred at an educational tech company when an employee unintentionally shared confidential documents with an external contact. The files were part of a folder meant for internal marketing use, but access had not been properly restricted.
+    </p>
+    <p>
+      My role was to assess the cause, review current privacy policies and controls, and suggest improvements to prevent future incidents.
+    </p>
 
-  <h2>Notes</h2>
-  <div class="note">
-    Doing business with other companies might increase the risks to data since it presents other avenues for the information to be compromised. The risk of theft is important but might not be a priority because the bank is in an area with low crime rates.
+    <h2>Data Privacy Assessment</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Control</th>
+          <th>Least Privilege</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Issue(s)</strong></td>
+          <td><em>A shared folder intended for internal use was exposed to external users due to overly broad access permissions. The lack of oversight led to the unintentional release of sensitive materials.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Review</strong></td>
+          <td>
+            NIST SP 800-53: AC-6 recommends applying least privilege by assigning users only the permissions necessary to perform their tasks. It also advises routine audits to ensure compliance and proper data protection.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Recommendation(s)</strong></td>
+          <td>
+            <ul>
+              <li>Enforce stricter access permissions based on role and task necessity.</li>
+              <li>Implement recurring access reviews to remove outdated or excessive permissions.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Justification</strong></td>
+          <td>
+            Limiting access and performing regular audits helps minimize the risk of unauthorized data exposure. These practices reduce the chances of internal oversharing and help safeguard sensitive company information.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center; margin-top: 2rem;">
+      <a href="../index.html">&larr; Back to Portfolio</a>
+    </p>
   </div>
-
-  <h2>Risk Register Guidance</h2>
-  <ul>
-    <li><strong>Asset:</strong> The asset at risk of being harmed, damaged, or stolen.</li>
-    <li><strong>Risk(s):</strong> A potential risk to the organization’s information systems and data.</li>
-    <li><strong>Description:</strong> A vulnerability that might lead to a security incident.</li>
-    <li><strong>Likelihood:</strong> Scale of 1–3 representing chance of exploitation (1 = low, 3 = high).</li>
-    <li><strong>Severity:</strong> Scale of 1–3 representing business impact (1 = low, 3 = high).</li>
-    <li><strong>Priority:</strong> Calculated as <strong>Likelihood × Severity</strong>.</li>
-  </ul>
-
-  <h2>Risk Matrix</h2>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Low (1)</th>
-        <th>Moderate (2)</th>
-        <th>Catastrophic (3)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Certain (3)</th>
-        <td>3</td>
-        <td>6</td>
-        <td>9</td>
-      </tr>
-      <tr>
-        <th>Likely (2)</th>
-        <td>2</td>
-        <td>4</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <th>Rare (1)</th>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="back-link">
-    <a href="../index.html">&larr; Back to Portfolio</a>
-  </div>
-
 </body>
 </html>
