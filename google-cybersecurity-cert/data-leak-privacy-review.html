@@ -1,71 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Leak Privacy Review Lab</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <title>Data Leak Privacy Review</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #ffffff;
+        color: #333;
+    }
+    h1, h2 {
+        color: #1a73e8;
+    }
+    h3 {
+        margin-top: 2rem;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+    table, th, td {
+        border: 1px solid #999;
+    }
+    th, td {
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    ul {
+        margin-top: 0.5rem;
+    }
+    a {
+        color: #1a73e8;
+    }
+    p {
+        margin-top: 0.5rem;
+    }
+    code {
+        background: #f4f4f4;
+        padding: 2px 4px;
+        font-family: monospace;
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <h1>Data Leak Privacy Review Lab</h1>
-    <p><strong>Course:</strong> Google Cybersecurity Certificate - Course 5</p>
-    <p><strong>Lab Type:</strong> Data Privacy and Risk Management</p>
+  <h1>Data Leak Privacy Review</h1>
 
-    <h2>Overview</h2>
-    <p>
-      In this exercise, I assessed how well an organization manages the privacy of sensitive data. This included reviewing a security incident to determine if proper access controls were in place. I specifically evaluated how the principle of <strong>least privilege</strong> was applied and made recommendations for improvement.
-    </p>
+  <h2>Course:</h2>
+  <p>Google Cybersecurity Certificate - Course 5</p>
 
-    <h2>Scenario Summary</h2>
-    <p>
-      A tech company experienced a data exposure event involving confidential files being shared externally without proper authorization. This incident highlighted a gap in access control measures. My task was to review the cause of the issue, examine current privacy safeguards, and propose ways to reduce the risk of similar events.
-    </p>
+  <h2>Lab Type:</h2>
+  <p>Data Privacy Review Activity</p>
 
-    <h2>Control Analysis</h2>
-    <table border="1" cellpadding="10" cellspacing="0">
-      <thead>
-        <tr>
-          <th>Control</th>
-          <th>Least Privilege</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Issue(s)</strong></td>
-          <td>
-            <em>File sharing permissions were overly broad. A link intended for internal use was shared externally without restriction, leading to the unintentional exposure of sensitive marketing content.</em>
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Review</strong></td>
-          <td>
-            NIST SP 800-53: AC-6 outlines how least privilege should be implemented to safeguard data access. It emphasizes assigning users only the minimum permissions necessary for their roles, and recommends periodic reviews to strengthen compliance.
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Recommendation(s)</strong></td>
-          <td>
-            <ul>
-              <li>Limit access to sensitive files by default and grant access only as needed.</li>
-              <li>Conduct regular audits of permission settings to ensure proper access is maintained.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Justification</strong></td>
-          <td>
-            <em>
-              Tightening access controls reduces the chance of accidental leaks. Periodic audits ensure that outdated or excessive permissions are identified and removed. These steps significantly lower the risk of unauthorized data sharing.
-            </em>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Overview</h2>
+  <p>
+    In this activity, I reviewed the results of a data risk assessment to determine whether effective data handling processes are being implemented to protect 
+    <strong>information privacy</strong>. The assessment focuses on minimizing exposure through the proper implementation of access controls like the 
+    <strong>principle of least privilege</strong>.
+  </p>
 
-    <p style="text-align:center; margin-top: 2rem;">
-      <a href="../index.html">&larr; Back to Portfolio</a>
-    </p>
-  </main>
+  <h2>Scenario</h2>
+  <p>
+    A data leak incident was reported at an educational technology company. An employee accidentally shared sensitive business documents with an external business partner. 
+    The incident occurred because access to internal folders was too broadly granted.
+  </p>
+  <p>
+    I was asked to evaluate the event, review existing controls (based on NIST SP 800-53: AC-6), and provide improvement recommendations.
+  </p>
+
+  <h2>Data Privacy Assessment</h2>
+  <table>
+    <tr>
+      <th>Control</th>
+      <td>Least privilege</td>
+    </tr>
+    <tr>
+      <th>Issue(s)</th>
+      <td>
+        File permissions were too lenient. A marketing folder meant for internal use was shared externally without adequate oversight, leading to the exposure of confidential content.
+      </td>
+    </tr>
+    <tr>
+      <th>Review</th>
+      <td>
+        NIST SP 800-53: AC-6 outlines how least privilege should be implemented to safeguard data access. It emphasizes assigning users only the minimum permissions necessary for their roles, and recommends periodic reviews to strengthen compliance.
+      </td>
+    </tr>
+    <tr>
+      <th>Recommendation(s)</th>
+      <td>
+        <ul>
+          <li>Limit access to sensitive files by default and grant access only as needed.</li>
+          <li>Conduct regular audits of permission settings to ensure proper access is maintained.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Justification</th>
+      <td>
+        Tightening access controls reduces the chance of accidental leaks. Periodic audits ensure that outdated or excessive permissions are identified and removed. These steps significantly lower the risk of unauthorized data sharing.
+      </td>
+    </tr>
+  </table>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
 </body>
 </html>
