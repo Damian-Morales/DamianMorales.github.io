@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Leak Assessment Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+    ul {
+      margin-top: 0.5rem;
+    }
+    a {
+      color: #0077cc;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Leak Assessment</h1>
+  <h3>Course:</h3>
+  <p>Google Cybersecurity Certificate - Course 5</p>
+
+  <h3>Lab Type:</h3>
+  <p>Data Risk Assessment & Recommendation</p>
+
+  <div class="section">
+    <h2>Overview</h2>
+    <p>In this lab, I evaluated a data risk scenario involving a leak caused by improper access controls. I reviewed the incident, studied the implemented controls, and used the NIST SP 800-53: AC-6 guidelines to recommend improvements to data privacy policies. The goal was to determine whether effective data handling processes are being used and how to enhance them using security frameworks like the NIST Cybersecurity Framework (CSF).</p>
+  </div>
+
+  <div class="section">
+    <h2>Steps Completed</h2>
+    <ul>
+      <li>Reviewed the incident summary involving a sales team accidentally sharing confidential documents via a public link.</li>
+      <li>Evaluated how <strong>least privilege</strong> controls were not enforced, contributing to the incident.</li>
+      <li>Consulted NIST SP 800-53: AC-6 to analyze current access control effectiveness.</li>
+      <li>Recommended two control enhancements:
+        <ul>
+          <li>Restrict access to sensitive resources based on user roles.</li>
+          <li>Regularly audit user privileges.</li>
+        </ul>
+      </li>
+      <li>Justified how these recommendations will reduce future data leaks by limiting unnecessary access and improving oversight.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Artifacts</h2>
+    <ul>
+      <li><a href="artifacts/data-leak-assessment.html">Completed Data Leak Worksheet (HTML Export)</a></li>
+    </ul>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </div>
+</body>
+</html>
