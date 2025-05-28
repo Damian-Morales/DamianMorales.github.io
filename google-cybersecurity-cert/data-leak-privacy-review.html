@@ -1,117 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <title>Data Leak Privacy Review</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: auto;
-        padding: 2rem;
-        background-color: #ffffff;
-        color: #333;
-    }
-    h1, h2 {
-        color: #1a73e8;
-    }
-    h3 {
-        margin-top: 2rem;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-    }
-    table, th, td {
-        border: 1px solid #999;
-    }
-    th, td {
-        padding: 12px;
-        vertical-align: top;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    ul {
-        margin-top: 0.5rem;
-    }
-    a {
-        color: #1a73e8;
-    }
-    p {
-        margin-top: 0.5rem;
-    }
-    code {
-        background: #f4f4f4;
-        padding: 2px 4px;
-        font-family: monospace;
-    }
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    code, pre { background-color: #f4f4f4; padding: 4px 6px; border-radius: 4px; font-family: monospace; }
+    pre { overflow-x: auto; padding: 10px; margin-top: 0; }
+    .note { background-color: #eef4ff; border-left: 4px solid #a0c4ff; padding: 12px; margin: 1rem 0; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+
   <h1>Data Leak Privacy Review</h1>
 
-  <h2>Course:</h2>
-  <p>Google Cybersecurity Certificate - Course 5</p>
-
-  <h2>Lab Type:</h2>
-  <p>Data Privacy Review Activity</p>
-
-  <h2>Overview</h2>
+  <h2>Activity Overview</h2>
   <p>
-    In this activity, I reviewed the results of a data risk assessment to determine whether effective data handling processes are being implemented to protect 
-    <strong>information privacy</strong>. The assessment focuses on minimizing exposure through the proper implementation of access controls like the 
-    <strong>principle of least privilege</strong>.
+    In this lab activity, I evaluated a real-world data leak scenario and applied privacy principles to determine how to better protect organizational information. I focused on identifying access control weaknesses and improving safeguards in line with cybersecurity standards.
   </p>
 
   <h2>Scenario</h2>
   <p>
-    A data leak incident was reported at an educational technology company. An employee accidentally shared sensitive business documents with an external business partner. 
-    The incident occurred because access to internal folders was too broadly granted.
+    An employee at an educational technology company unintentionally shared confidential documents with an external business partner. The files were stored in a shared folder with unrestricted access, violating least privilege principles.
   </p>
   <p>
-    I was asked to evaluate the event, review existing controls (based on NIST SP 800-53: AC-6), and provide improvement recommendations.
+    My task was to review the incident and recommend access control improvements using NIST guidance as a reference.
   </p>
 
-  <h2>Data Privacy Assessment</h2>
-  <table>
-    <tr>
-      <th>Control</th>
-      <td>Least privilege</td>
-    </tr>
-    <tr>
-      <th>Issue(s)</th>
-      <td>
-        File permissions were too lenient. A marketing folder meant for internal use was shared externally without adequate oversight, leading to the exposure of confidential content.
-      </td>
-    </tr>
-    <tr>
-      <th>Review</th>
-      <td>
-        NIST SP 800-53: AC-6 outlines how least privilege should be implemented to safeguard data access. It emphasizes assigning users only the minimum permissions necessary for their roles, and recommends periodic reviews to strengthen compliance.
-      </td>
-    </tr>
-    <tr>
-      <th>Recommendation(s)</th>
-      <td>
-        <ul>
-          <li>Limit access to sensitive files by default and grant access only as needed.</li>
-          <li>Conduct regular audits of permission settings to ensure proper access is maintained.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th>Justification</th>
-      <td>
-        Tightening access controls reduces the chance of accidental leaks. Periodic audits ensure that outdated or excessive permissions are identified and removed. These steps significantly lower the risk of unauthorized data sharing.
-      </td>
-    </tr>
-  </table>
+  <h2>Investigation Summary</h2>
+  <p><strong>Control Focus:</strong> Least Privilege</p>
+  <p><strong>Problem:</strong> Files in a marketing folder were too broadly shared, enabling unauthorized access by external parties.</p>
+  <p><strong>Evaluation:</strong> Based on NIST SP 800-53: AC-6, access should be granted only as needed and reviewed periodically to limit unnecessary exposure.</p>
+  <p><strong>Recommendations:</strong></p>
+  <ul>
+    <li>Restrict default file access and grant permissions based on user role.</li>
+    <li>Schedule regular audits to identify and remove excessive permissions.</li>
+  </ul>
+  <p><strong>Justification:</strong> These actions reduce accidental exposure by minimizing over-privileged access and ensuring ongoing oversight of sensitive data.</p>
+
+  <h2>Conclusion</h2>
+  <p>
+    This exercise strengthened my understanding of how access control failures can lead to privacy risks. By applying the least privilege model and NIST recommendations, I was able to develop practical steps to improve information security.
+  </p>
 
   <p style="text-align:center; margin-top: 2rem;">
     <a href="../index.html">&larr; Back to Portfolio</a>
   </p>
+
 </body>
 </html>
