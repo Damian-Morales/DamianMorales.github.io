@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Access Controls Worksheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #2c3e50;
+    }
+    th:first-child {
+      background-color: #e0e7ef;
+      width: 20%;
+    }
+    td ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    td ul li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Access Controls Worksheet</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Note(s)</th>
+        <th>Issue(s)</th>
+        <th>Recommendation(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Authorization / Authentication</th>
+        <td>
+          <ul>
+            <li>I see in the Event log that “asmith” (employee ID 104) accessed the payroll folder on 2025-06-01 at 23:15 from IP 203.0.113.45, which is outside our normal office network.</li>
+            <li>Just two minutes later (23:17), “asmith” edited the bank-account field in the payroll spreadsheet. According to the Employee directory, asmith is listed as a Sales Representative – not Finance – so this modification is unexpected.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>All employees share a single “Employee” role on the cloud drive, so non-finance staff (like sales reps) can view and modify payroll files. There is no role-based restriction.</li>
+            <li>There is no multi-factor authentication (MFA) or IP restriction on the cloud drive. That means anyone with valid credentials (even if they’re not in Finance) can log in from any location at any time and change sensitive data.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>I recommend implementing <strong>role-based access control</strong> so that only users in the Finance department (e.g., Payroll Clerk, Finance Manager) have write (modify) permissions on payroll files. Sales, HR, and other departments should have read-only or no access to that folder.</li>
+            <li>I recommend enforcing <strong>multi-factor authentication</strong> for every user who accesses the cloud drive. In addition, I’d restrict login attempts to our office VPN IP range during business hours (e.g., 8 AM – 6 PM).</li>
+            <li>I also suggest setting up <strong>automated alerts</strong> for any modification attempt on the payroll spreadsheet made by someone not in Finance. That way, I (or the security team) can investigate immediately whenever a non-authorized user tries to edit.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="text-align: center; margin-top: 2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
