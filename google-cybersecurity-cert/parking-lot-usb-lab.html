@@ -28,12 +28,15 @@
     }
     th, td {
       border: 1px solid #aaa;
-      padding: 10px;
+      padding: 12px;
       text-align: left;
       vertical-align: top;
     }
     th {
       background-color: #f2f2f2;
+    }
+    th:first-child {
+      width: 30%;
     }
     a {
       color: #2980b9;
@@ -49,16 +52,16 @@
   <h1>Parking Lot USB Exercise – My Work</h1>
 
   <h2>Overview</h2>
-  <p>In this activity, I assessed the attack vectors of a USB drive found in a parking lot. I considered both the attacker’s and the target’s perspectives by investigating the device in a virtual environment. This helped me identify the risks and controls needed to safely handle unknown media.</p>
+  <p>In this activity, I assessed the attack vectors of a USB drive found in a parking lot. I examined it in a sandboxed virtual environment to avoid exposing our network to any potential malware. This helped me evaluate the risks and necessary controls for handling unknown media.</p>
 
   <h2>Scenario</h2>
-  <p>I found a USB stick branded with the hospital’s logo in an empty parking lot and brought it back to my isolated workstation. Using virtualization, I mounted the drive in a sandbox so I could examine its contents without risking my corporate network. The drive appeared to belong to Jorge Bailey, the HR manager, and contained a mix of personal and work files.</p>
+  <p>I discovered a USB stick branded with the hospital’s logo on the ground and brought it back to an isolated workstation. Using virtualization, I mounted the drive safely and saw folders belonging to Jorge Bailey—both personal photos and hospital documents. I needed to determine what information was present and how an attacker might exploit it.</p>
 
   <h2>Work Done</h2>
   <table>
     <thead>
       <tr>
-        <th>Category</th>
+        <th>Contents</th>
         <th>My Response</th>
       </tr>
     </thead>
@@ -66,26 +69,26 @@
       <tr>
         <th>Contents</th>
         <td>
-          The USB drive contains folders named “Family photos” and “Our dog pics,” suggesting personal images. It also holds work-related files like Jorge’s shift schedules and an employee budget document. Mixing personal and business data increases the risk of exposing PII or inadvertently executing malicious code if the two data types aren’t segregated.
+          I found personal folders like “Family photos” and “Our dog pics” alongside work files such as shift schedules and budget spreadsheets. The mix of personal and professional data suggests potential exposure of PII and confidential hospital information. Keeping these together increases the risk of unintentionally sharing sensitive data.
         </td>
       </tr>
       <tr>
         <th>Attacker mindset</th>
         <td>
-          An attacker could use personal photos as bait to trick Jorge into plugging the drive into a vulnerable machine. They might hide malware in seemingly benign files to establish a backdoor and then move laterally within the hospital network. The data could also be weaponized for targeted phishing against Jorge’s colleagues or relatives.
+          An attacker could use the personal photos as social engineering bait to trick Jorge into plugging the drive into a live system. They might hide malicious scripts inside benign-looking documents to establish a foothold and move laterally through the network. The attacker could then leverage hospital documents for targeted phishing or deeper intrusion.
         </td>
       </tr>
       <tr>
         <th>Risk analysis</th>
         <td>
-          Attackers could hide malicious scripts inside document files that execute upon opening, compromising the virtual environment and escaping into the host. If another employee unknowingly found and used the drive, the malware could propagate across critical systems, disrupting services. Sensitive HR schedules or budget files could be exfiltrated and used for extortion or social engineering. To mitigate these risks, I recommend scanning all removable media in a sandbox, enforcing strict separation of personal and work data, and disabling autorun features on all endpoints.
+          To mitigate these threats, I recommend always scanning removable media in a sandbox before any further handling. Disabling AutoPlay on endpoints and enforcing endpoint security policies will prevent unintentional code execution. Managerial controls like regular USB-hygiene training can raise awareness of baiting attacks. Finally, segmenting the network and restricting USB ports to authorized devices will further reduce exposure.
         </td>
       </tr>
     </tbody>
   </table>
 
   <h2>Conclusion</h2>
-  <p>By completing this exercise, I identified the types of information on the USB drive, considered how an attacker could exploit it, and analyzed the technical and managerial controls needed to mitigate these risks. Implementing sandbox scanning, data segregation, and disabling autorun will greatly reduce the threat of USB baiting attacks.</p>
+  <p>Through this exercise, I identified the types of data on the drive, anticipated attacker tactics, and proposed layered controls—technical, operational, and managerial—to mitigate USB baiting risks. Implementing sandboxing, AutoPlay disablement, training, and network restrictions will significantly strengthen our defenses against unknown USB devices.</p>
 
   <p style="text-align:center; margin-top:2rem;">
     <a href="../index.html">&larr; Back to Portfolio</a>
