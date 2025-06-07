@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parking Lot USB Exercise – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Parking Lot USB Exercise – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this activity, I assessed the attack vectors of a USB drive found in a parking lot. I considered both the attacker’s and the target’s perspectives by investigating the device in a virtual environment. This helped me identify the risks and controls needed to safely handle unknown media.</p>
+
+  <h2>Scenario</h2>
+  <p>I found a USB stick branded with the hospital’s logo in an empty parking lot and brought it back to my isolated workstation. Using virtualization, I mounted the drive in a sandbox so I could examine its contents without risking my corporate network. The drive appeared to belong to Jorge Bailey, the HR manager, and contained a mix of personal and work files.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>My Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Contents</th>
+        <td>
+          The USB drive contains folders named “Family photos” and “Our dog pics,” suggesting personal images. It also holds work-related files like Jorge’s shift schedules and an employee budget document. Mixing personal and business data increases the risk of exposing PII or inadvertently executing malicious code if the two data types aren’t segregated.
+        </td>
+      </tr>
+      <tr>
+        <th>Attacker mindset</th>
+        <td>
+          An attacker could use personal photos as bait to trick Jorge into plugging the drive into a vulnerable machine. They might hide malware in seemingly benign files to establish a backdoor and then move laterally within the hospital network. The data could also be weaponized for targeted phishing against Jorge’s colleagues or relatives.
+        </td>
+      </tr>
+      <tr>
+        <th>Risk analysis</th>
+        <td>
+          Attackers could hide malicious scripts inside document files that execute upon opening, compromising the virtual environment and escaping into the host. If another employee unknowingly found and used the drive, the malware could propagate across critical systems, disrupting services. Sensitive HR schedules or budget files could be exfiltrated and used for extortion or social engineering. To mitigate these risks, I recommend scanning all removable media in a sandbox, enforcing strict separation of personal and work data, and disabling autorun features on all endpoints.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By completing this exercise, I identified the types of information on the USB drive, considered how an attacker could exploit it, and analyzed the technical and managerial controls needed to mitigate these risks. Implementing sandbox scanning, data segregation, and disabling autorun will greatly reduce the threat of USB baiting attacks.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
