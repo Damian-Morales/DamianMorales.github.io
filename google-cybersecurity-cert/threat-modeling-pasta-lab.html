@@ -3,48 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Threat Modeling with PASTA – My Work</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    h2 {
-      margin-top: 2rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.25rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    th, td {
-      border: 1px solid #aaa;
-      padding: 12px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    th:first-child {
-      width: 30%;
-    }
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    h2 { margin-top: 2rem; border-bottom: 2px solid #ddd; padding-bottom: 0.25rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid #aaa; padding: 12px; vertical-align: top; }
+    th { background-color: #f2f2f2; text-align: left; }
+    th:first-child { width: 25%; }
+    ul { margin: 0 0 0 1.2rem; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -52,67 +22,88 @@
   <h1>Threat Modeling with PASTA – My Work</h1>
 
   <h2>Overview</h2>
-  <p>In this activity, I performed a threat model of a new sneaker-buying app using the PASTA framework. I worked through all seven stages to identify business objectives, technical scope, threats, vulnerabilities, and controls. The result is a set of security requirements I can share with the development team.</p>
+  <p>I applied the PASTA threat-modeling framework to a new sneaker-marketplace app. Over seven stages, I captured business goals, mapped technical components, identified threats and vulnerabilities, and proposed controls that satisfy the security requirements.</p>
 
   <h2>Scenario</h2>
-  <p>I’m part of the security team at a company building a mobile app for sneaker enthusiasts to buy and sell shoes. The app supports user sign-up, messaging between buyers and sellers, rating functionality, and payment processing. My goal was to use PASTA to uncover risks and recommend safeguards before launch.</p>
+  <p>I’m on the security team for a mobile app that lets sneaker enthusiasts buy, sell, and rate shoes. The app supports account creation, messaging, and payment processing. My task was to work through all PASTA stages to deliver a clear set of security recommendations before launch.</p>
 
   <h2>Work Done</h2>
   <table>
     <thead>
       <tr>
         <th>PASTA Stage</th>
-        <th>My Response</th>
+        <th>My Notes</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th>I. Business Objectives</th>
         <td>
-          I noted that the app must process secure transactions, enable real-time messaging, and comply with PCI-DSS regulations. I also highlighted the need for high availability and data privacy to maintain user trust.
+          <ul>
+            <li>Users must securely register and log in via internal or external identity providers.</li>
+            <li>The app must process financial transactions in compliance with PCI-DSS.</li>
+            <li>High availability and data privacy are required to maintain user trust.</li>
+          </ul>
         </td>
       </tr>
       <tr>
         <th>II. Technical Scope</th>
         <td>
-          I reviewed that the app uses a REST API for frontend-backend communication, PKI/TLS for encryption, SHA-256 for data integrity, and SQL database storage. I prioritized securing the API first—because it exposes the most functionality—and enforcing TLS to protect data in transit.
+          <ul>
+            <li>RESTful API for client-server communication</li>
+            <li>PKI/TLS for encryption of data in transit</li>
+            <li>SHA-256 for hashing sensitive data</li>
+            <li>SQL database for storing user and transaction records</li>
+          </ul>
+          <p>I prioritized securing the API endpoint first—since it handles all user input—and enforcing TLS to protect every network request.</p>
         </td>
       </tr>
       <tr>
-        <th>III. Decompose Application</th>
+        <th>III. Decompose App</th>
         <td>
-          I examined the data-flow diagram showing “Search → Query DB → Return Listings.” I mapped out where user input enters the API, how credentials are validated, and where transaction records are stored.
+          <p>I reviewed the PASTA data flow diagram to map how “Search → Query DB → Return Listings” operates. This helped me pinpoint where user input enters the system and where transaction data is stored.</p>
         </td>
       </tr>
       <tr>
         <th>IV. Threat Analysis</th>
         <td>
-          I identified two key threats: <strong>external attackers</strong> launching SQL injection via the search endpoint, and <strong>insider misuse</strong> of administrative APIs to alter listings.
+          <ul>
+            <li>Injection attacks against unsanitized parameters</li>
+            <li>Session hijacking via stolen authentication tokens</li>
+          </ul>
         </td>
       </tr>
       <tr>
         <th>V. Vulnerability Analysis</th>
         <td>
-          I found potential SQL injection in unsanitized queries and weak session tokens prone to hijacking. These flaws could let an attacker exfiltrate data or impersonate users.
+          <ul>
+            <li>Use of dynamic SQL without prepared statements</li>
+            <li>Weak or expired API tokens allowing unauthorized access</li>
+          </ul>
         </td>
       </tr>
       <tr>
         <th>VI. Attack Modeling</th>
         <td>
-          I built an attack tree with root “Compromise App,” branches for “Inject SQL,” “Hijack Session,” and “Exploit API Keys,” and leaves detailing input vectors and session cookie theft.
+          <p>I built an attack tree with root “Compromise App,” branches for “SQL Injection” and “Token Theft,” and leaf nodes detailing input vectors and session cookie capture.</p>
         </td>
       </tr>
       <tr>
         <th>VII. Controls & Mitigations</th>
         <td>
-          I recommended using prepared statements/ORM to prevent injection, enforcing TLS with PKI, implementing MFA for administrative access, and performing regular code reviews and automated security testing.
+          <ul>
+            <li>Enforce prepared statements/ORM to eliminate injection paths</li>
+            <li>Require multi-factor authentication for all privileged actions</li>
+            <li>Rotate and validate API tokens with strict expiration policies</li>
+            <li>Maintain incident response procedures and regular security audits</li>
+          </ul>
         </td>
       </tr>
     </tbody>
   </table>
 
   <h2>Conclusion</h2>
-  <p>By completing PASTA end-to-end, I captured the app’s security goals, mapped its architecture, listed threats and weaknesses, and proposed a layered defense strategy. These controls will help the development team build a more secure sneaker-marketplace app before it goes live.</p>
+  <p>Completing PASTA end-to-end gave me a structured view of the app’s risks and a clear set of security requirements. The recommended controls—layered across technical, operational, and managerial domains—will guide the development team toward a more secure deployment.</p>
 
   <p style="text-align:center; margin-top:2rem;">
     <a href="../index.html">&larr; Back to Portfolio</a>
