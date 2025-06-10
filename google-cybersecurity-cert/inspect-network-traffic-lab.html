@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Inspect Network Traffic with Wireshark – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+      text-align: left;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inspect Network Traffic with Wireshark – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I used Wireshark to analyze a packet capture and learn how to filter and inspect network traffic. I built practical skills opening capture files, applying display filters, and drilling into packet-level details to identify meaningful data.</p>
+
+  <h2>Scenario</h2>
+  <p>I acted as a security analyst examining traffic from a user’s web browsing session. My objectives were to identify source and destination IPs, determine which protocols were used, inspect individual packets, and apply filters to isolate DNS and HTTP payload data.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>My Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Open capture file</th>
+        <td>I loaded the provided .pcap in Wireshark and reviewed the packet list to familiarize myself with the timestamps and endpoints.</td>
+      </tr>
+      <tr>
+        <th>Identify IP addresses</th>
+        <td>I applied the filter <code>ip.addr</code> to list unique source and destination IPs, noting the client at 192.0.2.10 and the server at 198.51.100.25.</td>
+      </tr>
+      <tr>
+        <th>Examine protocols</th>
+        <td>I added the Protocol column and observed DNS, TCP, and HTTP traffic. I drilled into HTTP packets to confirm GET and 200 OK responses.</td>
+      </tr>
+      <tr>
+        <th>Filter DNS (UDP port 53)</th>
+        <td>I used the display filter <code>udp.port == 53</code> to isolate DNS queries and responses, then inspected the query names and TTL values.</td>
+      </tr>
+      <tr>
+        <th>Filter HTTP payload</th>
+        <td>I applied <code>http.request or http.response</code> and <code>tcp contains "Host"</code> to locate HTTP headers and payload text, extracting the requested URL paths.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By completing this exercise, I practiced using Wireshark filters to pinpoint IP addresses, protocols, DNS queries, and HTTP payloads. These skills will help me efficiently analyze network traffic and uncover relevant security events.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
