@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Analyze Artifact with VirusTotal – My Findings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    h2 { margin-top: 2rem; border-bottom: 2px solid #ddd; padding-bottom: 0.25rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    th, td { border: 1px solid #aaa; padding: 12px; vertical-align: top; }
+    th { background-color: #f2f2f2; width: 30%; text-align: left; }
+    ul { margin: 0 0 0 1.2rem; }
+    code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <h1>Analyze Artifact with VirusTotal – My Findings</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I used VirusTotal to investigate a password-protected spreadsheet’s SHA256 hash and then captured its key indicators of compromise in the Pyramid of Pain template. I explored vendor detections, community feedback, and static/sandboxed details to build a complete picture of the threat.</p>
+
+  <h2>Scenario</h2>
+  <p>As an L1 SOC analyst at a financial firm, I received an alert for a suspicious spreadsheet file. After extracting its SHA256 hash (<code>54e6ea47eb04634d3e87fd7787e2136c6efbcc80ade34f246a12cf93bab527f6b</code>), my task was to determine whether it was malicious and then identify three types of IoCs to enter into the Pyramid of Pain.</p>
+
+  <h2>Investigation Findings</h2>
+  <p><strong>Has this file hash been reported as malicious?</strong> I saw that 55 out of 68 security vendors flagged the hash as malicious. Research shows this sample matches the FlagPro malware family, which is associated with the BlackTech threat group.</p>
+
+  <h2>Indicators of Compromise</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>IoC Type</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Hash values</th>
+        <td>
+          • SHA256: 54e6ea47eb04634d3e87fd7787e2136c6efbcc80ade34f246a12cf93bab527f6b<br/>
+          • MD5: 287d612e29b71c90aa54947313810a25
+        </td>
+      </tr>
+      <tr>
+        <th>Domain names</th>
+        <td>org.misecure.com</td>
+      </tr>
+      <tr>
+        <th>IP addresses</th>
+        <td>207.148.109.242</td>
+      </tr>
+      <tr>
+        <th>TTPs</th>
+        <td>
+          • Command and Control traffic<br/>
+          • Keystroke or input capture<br/>
+          • Malicious HTTP requests
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By walking through the VirusTotal report, I confirmed the file’s malicious status via high vendor detection rates, extracted multiple IoC types, and mapped them to the Pyramid of Pain. This structured output will help our SOC prioritize blocking these indicators and strengthen our defenses.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
