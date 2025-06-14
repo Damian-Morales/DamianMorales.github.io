@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Respond to Phishing Incident – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+      text-align: left;
+    }
+    ul {
+      margin: 0 0 0 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Respond to Phishing Incident – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this activity, I followed our phishing playbook to handle an alert for a malicious spreadsheet download. I reviewed the incident details, updated the alert ticket status, evaluated the evidence against our procedures, and recorded my findings and escalation rationale.</p>
+
+  <h2>Scenario</h2>
+  <p>As a level-one SOC analyst at a financial services firm, I received a phishing alert (Ticket A-2703) for a user who downloaded a password-protected Excel attachment. The file’s SHA256 hash was already flagged as malicious, so I needed to use the playbook flowchart and instructions to investigate, decide whether to escalate, and update the alert ticket accordingly.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>My Actions &amp; Findings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Ticket status</th>
+        <td>I set the Ticket status to <strong>Investigating</strong> to begin my analysis, then to <strong>Escalated</strong> after confirming the attachment hash was malicious and the alert required L2 review.</td>
+      </tr>
+      <tr>
+        <th>Alert evaluation</th>
+        <td>
+          <ul>
+            <li><strong>Severity:</strong> Medium, per playbook guidance.</li>
+            <li><strong>Sender:</strong> Def Communications &lt;76tguyhh6tgftrt7tg.su&gt; (suspicious domain).</li>
+            <li><strong>Attachment:</strong> “bfsvc.exe” in a password-protected spreadsheet.</li>
+            <li><strong>5 W’s:</strong> Who: Unknown threat actor; What: Malicious spreadsheet; When: Wed Jul 20 09:30 AM; Where: HR mailbox; Why: To deploy malware.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ticket comments</th>
+        <td>I noted: “Confirmed malicious hash. Sender domain is untrusted. Attachment bypassed mail controls. Escalating to L2 for containment and sandbox analysis.”</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By following the playbook, I ensured a consistent response: I updated the ticket status, documented my analysis of the alert details, and provided clear reasons for escalation. This structured approach will help our SOC act quickly and coordinate handoff to higher-level analysts.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
