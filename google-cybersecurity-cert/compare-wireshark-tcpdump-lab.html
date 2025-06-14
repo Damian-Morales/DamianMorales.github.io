@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Compare Wireshark and tcpdump – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      text-align: left;
+    }
+    th.tool {
+      width: 45%;
+    }
+    th.sim {
+      background-color: #e8eef5;
+      text-align: center;
+      font-style: italic;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      margin: 0 0 0 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Compare Wireshark and tcpdump – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this activity, I compared two packet analyzers—tcpdump and Wireshark—to understand when to use each. I reviewed official docs and community guides, then distilled their core differences and shared capabilities into a concise table.</p>
+
+  <h2>Scenario</h2>
+  <p>As a cybersecurity analyst, I need both quick, scriptable captures and in-depth, interactive analysis tools. By mapping out CLI vs GUI workflows, resource footprints, and filtering options, I can choose the right tool for any investigation.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="tool">tcpdump</th>
+        <th class="tool">Wireshark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Command-line interface for live capture</li>
+            <li>Lightweight &amp; ideal for scripting</li>
+            <li>Uses BPF filters directly in CLI</li>
+            <li>Saves pcap for later analysis</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Graphical UI with color-coded protocols</li>
+            <li>Advanced tools: stream follow, expert info</li>
+            <li>Built-in filter builder and statistics</li>
+            <li>Deeper packet-layer decoding</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th class="sim" colspan="2">Similarities</th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <ul>
+            <li>Open-source and free to use</li>
+            <li>Capture and read pcap files</li>
+            <li>Support BPF-style display filters</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>My comparison shows that tcpdump excels for quick, automated captures in resource-constrained environments, while Wireshark is best for deep dives via its rich GUI. Together, they give me a complete toolkit for any packet-analysis task.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
