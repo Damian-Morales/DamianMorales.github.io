@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Capture Network Traffic with tcpdump – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+      text-align: left;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Capture Network Traffic with tcpdump – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I used <code>tcpdump</code> on a Linux VM to capture and filter live network traffic. I learned how to identify the correct network interface, apply capture filters, save packets to a file, and re-filter the saved data for detailed analysis.</p>
+
+  <h2>Scenario</h2>
+  <p>As the user <strong>analyst</strong> already logged into a Linux terminal, I needed to use <code>tcpdump</code> to examine both live interface traffic and a provided pcap file. My goals were to identify available interfaces, filter HTTP and DNS packets in real time, record the traffic to a file, and then inspect that file with further filters.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>My Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Identify interfaces</th>
+        <td>I ran <code>ip link show</code> to list all network interfaces and confirmed <code>eth0</code> was up with an IP address. This ensured I captured traffic on the correct interface.</td>
+      </tr>
+      <tr>
+        <th>Filter live traffic</th>
+        <td>I executed <code>sudo tcpdump -i eth0 port 80</code> to display only HTTP packets in real time. Observing the filtered output helped me verify that the filter syntax was correct.</td>
+      </tr>
+      <tr>
+        <th>Capture to file</th>
+        <td>I used <code>sudo tcpdump -i eth0 -w capture.pcap</code> to record live traffic into a pcap file. This allowed me to save the entire packet stream for offline review.</td>
+      </tr>
+      <tr>
+        <th>Filter saved capture</th>
+        <td>I applied <code>tcpdump -r capture.pcap 'tcp port 80'</code> to isolate HTTP traffic from the saved file and <code>tcpdump -r capture.pcap udp port 53</code> to review DNS queries. This step confirmed my ability to re-analyze packets with different filters.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By completing this exercise, I gained hands-on experience identifying network interfaces, using <code>tcpdump</code> filters for both live and recorded traffic, interpreting packet details, and saving/loading pcap files. These skills are fundamental for efficient command-line packet analysis in a Linux environment.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
