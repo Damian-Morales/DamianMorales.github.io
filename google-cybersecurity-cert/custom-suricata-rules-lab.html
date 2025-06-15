@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Custom Suricata Rules Lab – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+      text-align: left;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      margin: 0 0 0 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Custom Suricata Rules Lab – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I experimented with Suricata by writing and testing a custom rule. I ran Suricata against a provided <code>sample.pcap</code> file, then analyzed the alerts in <code>fast.log</code> and detailed events in <code>eve.json</code> to verify my rule’s effectiveness.</p>
+
+  <h2>Scenario</h2>
+  <p>As a security analyst, I was given a base <code>custom.rules</code> file and a packet capture. My task was to add a rule that triggers on HTTP traffic to example.com, execute Suricata in offline mode, and then examine both the legacy <code>fast.log</code> and the JSON <code>eve.json</code> outputs.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>My Actions &amp; Findings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Edit rules</th>
+        <td>I opened <code>custom.rules</code> and added:<br/>
+          <code>alert http any any -> any any (msg:"Example.com access"; content:"Host: example.com"; sid:1000001; rev:1;)</code><br/>
+          This rule matches requests to example.com.
+        </td>
+      </tr>
+      <tr>
+        <th>Run Suricata</th>
+        <td>I executed:<br/>
+          <code>sudo suricata -r sample.pcap -c /etc/suricata/custom.rules --set outputs.eve.enabled=no</code><br/>
+          Suricata processed the pcap and generated <code>fast.log</code> and <code>eve.json</code>.
+        </td>
+      </tr>
+      <tr>
+        <th>Inspect fast.log</th>
+        <td>I opened <code>/var/log/suricata/fast.log</code> and saw entries like:<br/>
+          <code>[**] [1:1000001:1] Example.com access [**]</code><br/>
+          confirming my rule was triggered twice.
+        </td>
+      </tr>
+      <tr>
+        <th>Analyze eve.json</th>
+        <td>I searched for <code>sid:1000001</code> in <code>eve.json</code> and found JSON objects showing HTTP request details and timestamps, which validated the alerts with richer context.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Conclusion</h2>
+  <p>By crafting a simple HTTP rule and running Suricata in offline mode, I confirmed how custom signatures generate alerts. Reviewing both <code>fast.log</code> for quick checks and <code>eve.json</code> for detailed event data deepened my understanding of Suricata’s logging outputs.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
