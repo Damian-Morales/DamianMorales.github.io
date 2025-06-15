@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Sound the Alarm: Detection and Response (Course 6) – My Reflections</title>
+  <title>Detection, Analysis, and Response (course 6) – My Reflections</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
@@ -34,25 +34,25 @@
 </head>
 <body>
 
-  <h1>Course 5 Summary – My Learning</h1>
+  <h1>Detection, Analysis, and Response – My Reflections</h1>
 
   <h2>Overview</h2>
-  <p>In Course 5, I deepened my incident response skills by working through packet analysis, IDS rules, threat hunting in SIEMs, and playbook-driven investigations. Each module built on the last to give me hands-on practice with tools like Suricata, Splunk, tcpdump, Wireshark, VirusTotal, and Chronicle.</p>
+  <p>In course 6, I learned how to detect and respond to security incidents by combining packet analysis, IDS rules, and SIEM searches. I practiced the full incident lifecycle—from spotting malicious traffic to documenting findings and triaging alerts in real-time.</p>
 
   <h2>Module 1: Introduction to Detection and Incident Response</h2>
-  <p>I learned the incident lifecycle—from detection through containment, eradication, and recovery—and the roles of a response team. I also explored the documentation and tooling that support each stage, setting a strong foundation for the rest of the course.</p>
+  <p>I explored the steps of the incident lifecycle—detection, analysis, containment, and recovery—and learned the roles and responsibilities of a response team. Becoming familiar with the key tools and documentation practices prepared me for hands-on investigations.</p>
 
   <h2>Module 2: Network Monitoring and Analysis</h2>
-  <p>I practiced packet sniffing with both command-line and graphical tools. Using tcpdump and Wireshark, I captured live traffic, applied filters, and interpreted protocol data to spot anomalies and understand network communications.</p>
+  <p>Using packet-sniffing tools, I captured and filtered live traffic to identify source and destination IPs, protocols in use, and payload details. This module solidified my skills in tcpdump and Wireshark to gather the evidence needed for incident triage.</p>
 
   <h2>Module 3: Incident Investigation and Response</h2>
-  <p>I used VirusTotal to investigate a malicious hash, mapped indicators of compromise to the Pyramid of Pain, and followed a phishing playbook to triage and escalate alerts. This taught me how to combine evidence, playbook procedures, and clear documentation in a real-world SOC scenario.</p>
+  <p>I investigated a suspicious file hash with VirusTotal, mapped artifacts to the Pyramid of Pain, and practiced updating alert tickets following a phishing playbook. These exercises taught me how to combine evidence gathering with structured playbooks for consistent and effective responses.</p>
 
-  <h2>Module 4: Network Traffic and Logs with IDS and SIEM Tools</h2>
-  <p>I crafted custom Suricata signatures, triggered alerts on pcap data, and examined both fast.log and eve.json outputs. Then I ingested logs into Splunk Cloud and Chronicle, performed SPL and DQL searches, and located failed SSH attempts. This module reinforced how IDS and SIEM platforms work together in threat detection.</p>
+  <h2>Module 4: Network Traffic and Logs Using IDS and SIEM Tools</h2>
+  <p>I wrote custom Suricata rules to trigger alerts on pcap data, reviewed fast.log and eve.json outputs, and performed searches in Splunk Cloud to pinpoint failed SSH attempts. I also tried Google Chronicle queries, gaining confidence in SIEM-driven threat hunting.</p>
 
   <h2>Conclusion</h2>
-  <p>Completing Course 5 gave me a comprehensive, tool-driven workflow—from spotting malicious packets to documenting incidents and hunting threats in SIEMs. I feel confident applying these techniques in a SOC and adding this portfolio of skills to my professional profile.</p>
+  <p>By applying these detection and response techniques across multiple platforms, I now have a complete, tool-driven workflow for analyzing network traffic, investigating incidents, and documenting findings. I’m ready to bring these skills to a SOC environment.</p>
 
   <p style="text-align:center; margin-top:2rem;">
     <a href="../index.html">&larr; Back to Portfolio</a>
