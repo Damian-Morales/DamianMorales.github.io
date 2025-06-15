@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Finalize Incident Handler’s Journal – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 25%;
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    ul {
+      margin: 0 0 1rem 1.2rem;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Finalize Incident Handler’s Journal – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this final exercise I reviewed and polished my four journal entries, added a reflective note on my learning journey, and completed the self-assessment. This ensures my incident handler’s journal is complete, consistent, and ready for my professional portfolio.</p>
+
+  <h2>Scenario</h2>
+  <p>Over the course of the course, I captured investigation steps and tool exercises in my incident handler’s journal template. Now I’ve gone back through each entry to fill out all fields—dates, entry numbers, full descriptions, the 5 W’s, and tools used—then added a reflections section.</p>
+
+  <h2>My Journal Entries</h2>
+
+  <!-- Entry 1 -->
+  <table>
+    <tr><th>Date</th><td>2025-06-10</td></tr>
+    <tr><th>Entry</th><td>1</td></tr>
+    <tr><th>Description</th><td>I documented a ransomware attack on a clinic, summarizing how patient records were encrypted and operations halted.</td></tr>
+    <tr><th>Tool(s) used</th><td>Incident handler’s journal template, security console logs</td></tr>
+    <tr><th>The 5 W’s</th><td>
+      <ul>
+        <li><strong>Who:</strong> Organized hacker group</li>
+        <li><strong>What:</strong> Ransomware encrypting files</li>
+        <li><strong>When:</strong> Tue 09:00 AM</li>
+        <li><strong>Where:</strong> Clinic network drives</li>
+        <li><strong>Why:</strong> To extort ransom</li>
+      </ul>
+    </td></tr>
+    <tr><th>Additional notes</th><td>Emergency systems were offline; notified IT director and compliance team.</td></tr>
+  </table>
+
+  <!-- Entry 2 -->
+  <table>
+    <tr><th>Date</th><td>2025-06-12</td></tr>
+    <tr><th>Entry</th><td>2</td></tr>
+    <tr><th>Description</th><td>I analyzed a packet capture with Wireshark, filtering HTTP and DNS traffic to identify client and server IPs.</td></tr>
+    <tr><th>Tool(s) used</th><td>Wireshark, BPF display filters</td></tr>
+    <tr><th>The 5 W’s</th><td>
+      <ul>
+        <li><strong>Who:</strong> Security analyst (me)</li>
+        <li><strong>What:</strong> Packet inspection</li>
+        <li><strong>When:</strong> Wed afternoon</li>
+        <li><strong>Where:</strong> Testing VM</li>
+        <li><strong>Why:</strong> To learn network filtering</li>
+      </ul>
+    </td></tr>
+    <tr><th>Additional notes</th><td>Noted HTTP GETs to example.com; DNS TTL values examined.</td></tr>
+  </table>
+
+  <!-- Entry 3 -->
+  <table>
+    <tr><th>Date</th><td>2025-06-14</td></tr>
+    <tr><th>Entry</th><td>3</td></tr>
+    <tr><th>Description</th><td>I captured live Linux traffic with tcpdump, filtered HTTP port 80 and DNS port 53, and saved the pcap for offline review.</td></tr>
+    <tr><th>Tool(s) used</th><td><code>tcpdump</code> (live capture, read and write pcap)</td></tr>
+    <tr><th>The 5 W’s</th><td>
+      <ul>
+        <li><strong>Who:</strong> Linux VM user</li>
+        <li><strong>What:</strong> tcpdump capture</li>
+        <li><strong>When:</strong> Fri morning</li>
+        <li><strong>Where:</strong> eth0 interface</li>
+        <li><strong>Why:</strong> Practice CLI packet analysis</li>
+      </ul>
+    </td></tr>
+    <tr><th>Additional notes</th><td>Used filters <code>port 80</code> and <code>udp port 53</code>; saw expected DNS queries.</td></tr>
+  </table>
+
+  <!-- Entry 4 -->
+  <table>
+    <tr><th>Date</th><td>2025-06-16</td></tr>
+    <tr><th>Entry</th><td>4</td></tr>
+    <tr><th>Description</th><td>I created, tested, and verified a custom Suricata rule to detect HTTP requests to example.com in a sample pcap.</td></tr>
+    <tr><th>Tool(s) used</th><td>Suricata, custom.rules, fast.log, eve.json</td></tr>
+    <tr><th>The 5 W’s</th><td>
+      <ul>
+        <li><strong>Who:</strong> Security analyst</li>
+        <li><strong>What:</strong> Custom IDS rule</li>
+        <li><strong>When:</strong> Mon afternoon</li>
+        <li><strong>Where:</strong> Local test environment</li>
+        <li><strong>Why:</strong> Learn rule creation</li>
+      </ul>
+    </td></tr>
+    <tr><th>Additional notes</th><td>Rule <code>sid:1000001</code> fired twice; confirmed in both log formats.</td></tr>
+  </table>
+
+  <h2>Reflection / Notes</h2>
+  <p>Writing these entries helped me see how each tool fits into a real investigation. I found tcpdump’s simplicity very powerful for quick captures, while Wireshark’s GUI gave me deeper packet insights. Crafting Suricata rules reinforced how signatures map to alerts, and maintaining a structured journal keeps my process transparent and reproducible.</p>
+
+  <h2>Conclusion</h2>
+  <p>By fully updating each entry and adding my reflections, I’ve ensured my incident handler’s journal is complete, accurate, and ready to share as part of my cybersecurity portfolio.</p>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
