@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Search Data in Splunk Cloud – My Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 12px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+      text-align: left;
+    }
+    ul {
+      margin: 0 0 0 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Search Data in Splunk Cloud – My Work</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I signed up for Splunk Cloud, uploaded sample log data, and used SPL queries to explore and narrow results. I practiced identifying key fields, filtering by host, and locating failed SSH logins for the root account.</p>
+
+  <h2>Scenario</h2>
+  <p>As a security analyst at Buttercup Games, I needed to investigate any failed SSH attempts on the mail server’s root account. After ingesting the provided logs into Splunk Cloud, I performed a series of searches and field evaluations to pinpoint suspicious events.</p>
+
+  <h2>Work Done</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>My Actions &amp; Findings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Upload data</th>
+        <td>I created a free Splunk Cloud trial, navigated to “Add Data,” and uploaded the <code>sample_logs.csv</code> file into the “main” index. The ingest confirmation showed 109,864 events indexed.</td>
+      </tr>
+      <tr>
+        <th>Basic search</th>
+        <td>I ran <code>index="main"</code> in the Search &amp; Reporting app and retrieved all events, confirming the data was searchable across all time.</td>
+      </tr>
+      <tr>
+        <th>Evaluate fields</th>
+        <td>Under “Selected Fields,” I examined <strong>host</strong>, <strong>source</strong>, and <strong>sourcetype</strong>. I noted five hosts (e.g., <code>mailsv</code>, <code>www1</code>), eight source files, and three sourcetypes such as <code>secure-2</code>.</td>
+      </tr>
+      <tr>
+        <th>Narrow by host</th>
+        <td>I clicked on the <code>mailsv</code> host to append <code>host="mailsv"</code> to my search, reducing results to ~9,200 mail server events.</td>
+      </tr>
+      <tr>
+        <th>Search failed logins</th>
+        <td>I entered <code>index="main" host="mailsv" fail* root</code> and found 315 events indicating failed SSH root login attempts, spread across multiple timestamps.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>I successfully uploaded and indexed sample logs in Splunk Cloud.</li>
+    <li>Basic SPL queries (<code>index="main"</code>) confirm data ingest and searchability.</li>
+    <li>Field exploration reveals hosts, sources, and sourcetypes to guide analysis.</li>
+    <li>Filtering by host (<code>host="mailsv"</code>) narrows the dataset effectively.</li>
+    <li>Wildcard searches (e.g., <code>fail* root</code>) locate specific SSH failure events.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
