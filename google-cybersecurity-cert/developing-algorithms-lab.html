@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Developing Algorithms in Python</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    p {
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 0 0 1rem 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Developing Algorithms in Python Notebooks – My Lab</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I wrote a Python algorithm to verify that a user is authorized on the system and that the device they bring matches the assigned asset list. I practiced list indexing, element pairing, and using list methods within a function to automate decision logic.</p>
+
+  <h2>Scenario</h2>
+  <p>The notebook guided me through building a function that:</p>
+  <ul>
+    <li>Accepts two lists: one of approved usernames and one of their corresponding device IDs.</li>
+    <li>Checks if a given username exists in the approved list (using <code>.index()</code> to locate it).</li>
+    <li>Uses the same index to verify that the provided device ID matches the assigned one.</li>
+    <li>Returns a message indicating “Access granted” or “Access denied” based on these checks.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <ul>
+    <li>List indexing (<code>my_list[index]</code>) works the same as string indexing and starts at 0.</li>
+    <li><code>.append()</code> adds new elements; <code>.remove()</code> deletes them.</li>
+    <li><code>.index()</code> locates items in lists (and strings) by returning their position.</li>
+    <li>Pairing two lists via shared indices lets me associate related data (users ↔ devices).</li>
+    <li>Encapsulating this logic in a function creates a reusable algorithm for authorization checks.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
