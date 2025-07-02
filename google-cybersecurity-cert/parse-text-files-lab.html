@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Parsing Security Logs from Text Files – My Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    p {
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 0 0 1rem 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Parsing Security Logs from Text Files – My Lab</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I used Python’s file I/O syntax to import a raw log file, read its contents, and split the data into usable pieces. I also created a secondary text file to record a list of approved IP addresses for later analysis.</p>
+
+  <h2>Scenario</h2>
+  <p>As a security analyst, I needed to prepare my log data for deeper investigation. I wrote Python code to:</p>
+  <ul>
+    <li>Open <code>data/login.txt</code> in read mode using the <code>with</code> statement.</li>
+    <li>Use <code>.read()</code> to load the entire log into memory, then <code>.split()</code> to break it into individual entries.</li>
+    <li>Create or append to <code>allowed_ips.txt</code> in write mode, writing each verified IP address on its own line with <code>.write()</code>.</li>
+  </ul>
+  <p>This approach ensured efficient and safe handling of file resources.</p>
+
+  <h2>Conclusion</h2>
+  <ul>
+    <li>The <code>with</code> statement automatically handles opening and closing files.</li>
+    <li>The <code>open()</code> function takes:
+      <ul>
+        <li><code>"r"</code> for reading,</li>
+        <li><code>"a"</code> for appending,</li>
+        <li><code>"w"</code> for writing.</li>
+      </ul>
+    </li>
+    <li><code>.read()</code> loads file contents as a single string; <code>.split()</code> converts it into a list.</li>
+    <li><code>.write()</code> lets you append or overwrite text in a file.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
