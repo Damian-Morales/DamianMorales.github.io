@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Working with Regular Expressions in Python Notebooks – My Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    p {
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 0 0 1rem 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Working with Regular Expressions in Python Notebooks – My Lab</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I used Python’s <code>re</code> module to build patterns that automatically extract device IDs and IP addresses from log text. I practiced crafting regex sequences and applying functions like <code>re.findall()</code> to scan strings for matches.</p>
+
+  <h2>Scenario</h2>
+  <p>As a security analyst, I needed to:</p>
+  <ul>
+    <li>Identify device IDs matching an OS-specific format (e.g., alphanumeric sequences) from a sample log.</li>
+    <li>Extract all IPv4 addresses present, then compare them against a list of flagged IPs for further review.</li>
+  </ul>
+  <p>I defined patterns using tokens such as <code>\w</code>, <code>\d</code>, quantifiers (<code>+{n,m}</code>), and escape characters (e.g., <code>\.</code>), and used <code>re.findall()</code> to collect the results.</p>
+
+  <h2>Conclusion</h2>
+  <ul>
+    <li>Regular expressions let me create flexible patterns to locate key data in text.</li>
+    <li>Regex symbols I used:
+      <ul>
+        <li><code>\w</code> – any alphanumeric character</li>
+        <li><code>+</code> – one or more occurrences</li>
+        <li><code>\d</code> – any digit</li>
+        <li><code>\.</code> – literal period</li>
+        <li><code>{x,y}</code> – between x and y repeats</li>
+      </ul>
+    </li>
+    <li><code>re.findall()</code> returns all matches of a pattern in a string as a list.</li>
+    <li>Using regex in Python automates log parsing tasks like identifying vulnerable devices or suspicious IPs.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
