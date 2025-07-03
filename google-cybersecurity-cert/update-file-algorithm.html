@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update a File Through a Python Algorithm</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+    img { display: block; margin: 1rem auto; max-width: 100%; }
+    h1, h2 { text-align: center; }
+    h3 { margin-top: 2rem; }
+    p { margin: 1rem 0; }
+    code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Update a File Through a Python Algorithm</h1>
+
+  <h2>Project Description</h2>
+  <p>In my role as a cybersecurity analyst, I created a Python-based algorithm to help maintain the allow list of IP addresses that can access restricted resources. This allow list, stored in <code>"allow_list.txt"</code>, needs to be regularly updated to remove IP addresses that should no longer have access. My algorithm automates this process to help keep access control up to date and consistent.</p>
+
+  <h3>Step 1: Assign the File Name</h3>
+  <p>First, I created a variable to store the name of the file I wanted to work with. This makes the code more maintainable and easy to reuse.</p>
+  <img src="51e0be4d-4a58-447a-84da-891c9747ce66.png" alt="Assign file variable">
+
+  <h3>Step 2: Open the File for Reading</h3>
+  <p>I then used a <code>with</code> statement in combination with the <code>open()</code> function to read the file. Using <code>with</code> ensures the file is automatically closed once the operation finishes, which is a best practice.</p>
+  <img src="5d84bec6-2e5c-47a4-8998-758b2a49bcbc.png" alt="with open for reading">
+
+  <h3>Step 3: Read the File Contents</h3>
+  <p>To get the contents of the file, I applied the <code>.read()</code> method to pull everything into a string and assigned this string to a variable called <code>ip_addresses</code>. This prepares the data for later processing.</p>
+  <img src="3a57ab98-bdb6-458c-8913-7eef9c9a26fd.png" alt="read file contents">
+
+  <h3>Step 4: Convert to a List</h3>
+  <p>Next, I transformed the string of IP addresses into a list by applying the <code>.split()</code> method. Working with a list makes it much easier to update and remove specific entries.</p>
+  <img src="cf37f7bd-1821-483c-9345-f1ea25680b01.png" alt="split string to list">
+
+  <h3>Step 5: Iterate Through the Remove List</h3>
+  <p>I used a <code>for</code> loop to process every entry from a separate list of IP addresses that should be removed. This loop checks each removal candidate against the current allow list.</p>
+  <img src="312183de-0a5d-4458-8edd-b40beb58183b.png" alt="for loop to iterate">
+
+  <h3>Step 6: Remove Matching IP Addresses</h3>
+  <p>Inside the loop, I added a conditional check to confirm that each item actually exists in the allow list before trying to remove it, which prevents errors. The <code>.remove()</code> method then deletes the entry if it is found.</p>
+  <img src="f9bcd38b-4b2b-4d04-b985-59420f8200f9.png" alt="conditional remove">
+
+  <h3>Step 7: Convert the List Back to a String</h3>
+  <p>After updating the list, I combined the IP addresses back into a string using the <code>.join()</code> method with a newline character, so that each address appears on its own line in the file.</p>
+  <img src="b8e899df-5766-4a09-ab20-e3efe1467b4d.png" alt="join back to string">
+
+  <h3>Step 8: Write Back to the File</h3>
+  <p>Finally, I reopened the file in write mode using another <code>with</code> block and replaced its contents with the updated IP address list using the <code>.write()</code> method.</p>
+  <img src="c5e2a8f0-b207-4e51-8c51-689b79247e9d.png" alt="write updated contents">
+
+  <h2>Summary</h2>
+  <p>This project demonstrates how to automate the task of maintaining an allow list by writing a Python script. I loaded the list of approved IP addresses, transformed it into a list structure, then iterated over a list of addresses to remove, deleting them from the list where appropriate. Finally, I converted the cleaned list back into a string and overwrote the original file with the new data. This process supports improved access control and repeatable updates with minimal manual steps.</p>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
