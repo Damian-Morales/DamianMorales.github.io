@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Filtering Allowed IPs from Text Files – My Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    p {
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 0 0 1rem 1.2rem;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Filtering Allowed IPs from Text Files – My Lab</h1>
+
+  <h2>Overview</h2>
+  <p>In this lab, I wrote a Python script to parse a list of permitted IP addresses from <code>allow_list.txt</code>, then automatically remove any addresses listed in the provided <code>remove_list</code> variable. This helped me ensure that only current, authorized IPs remain on file.</p>
+
+  <h2>Scenario</h2>
+  <p>As a security analyst, I needed to automate maintenance of our access-control list. I was given:</p>
+  <ul>
+    <li><code>allow_list.txt</code> containing all IPs currently allowed to reach sensitive systems.</li>
+    <li>A Python list named <code>remove_list</code> holding IPs that should no longer have access.</li>
+  </ul>
+  <p>My task was to read both sources, filter out the unwanted addresses, and rewrite the cleaned list back to the file.</p>
+
+  <h2>What I Did</h2>
+  <ul>
+    <li>Opened <code>allow_list.txt</code> in read mode and used <code>.read().split()</code> to load its IPs into a list.</li>
+    <li>Iterated through that list with a <code>for</code> loop, using an <code>if</code> check to skip any IPs found in <code>remove_list</code>.</li>
+    <li>Reopened <code>allow_list.txt</code> in write mode and used <code>.write()</code> to save only the remaining IPs, one per line.</li>
+    <li>Wrapped all file operations in <code>with</code> blocks to guarantee proper resource cleanup.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <ul>
+    <li><code>with</code> blocks ensure files are closed automatically.</li>
+    <li>Reading with <code>.read().split()</code> converts file lines into a Python list.</li>
+    <li>Using a <code>for</code> loop plus an <code>if</code> test lets me filter out unwanted entries.</li>
+    <li>Writing with <code>.write()</code> in <code>"w"</code> mode cleanly replaces the old file contents.</li>
+    <li>Algorithms like this can be packaged into functions for reuse.</li>
+  </ul>
+
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="../index.html">&larr; Back to Portfolio</a>
+  </p>
+
+</body>
+</html>
