@@ -19,7 +19,8 @@ The goal of this project is to help raise security awareness and provide hands-o
    
 2. **Initialize the database**
    python manage.py init-db
-   ![Database Initialized](screenshots/Database%20initialized.png)
+   ![Database Initialized](./screenshots/Database%20initialized.png)
+
 
 4. **Configure environment file**
    Copy .env.example to .env and adjust campaign defaults.
