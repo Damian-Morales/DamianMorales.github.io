@@ -15,7 +15,7 @@ The goal of this project is to help raise security awareness and provide hands-o
    python -m venv .venv
    .venv\Scripts\activate
    pip install -r requirements.txt
-
+   ![Virtual Environment Setup](screenshots/terminal_venv.png)
    
 2. **Initialize the database**
    python manage.py init-db
