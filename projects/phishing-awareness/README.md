@@ -19,26 +19,26 @@ The goal of this project is to help raise security awareness and provide hands-o
    
 2. **Initialize the database**
    python manage.py init-db
-![Database Initialized](screenshots/database_initialized.png)
+   ![Database Initialized](screenshots/database_initialized.png)
 
 
 4. **Configure environment file**
    Copy .env.example to .env and adjust campaign defaults.
-   ![.env Configuration](screenshots/file%20.env%20opened.png)
+![.env Configuration](screenshots/file%20.env%20opened.png)
 
 ## Running a Campaign
 Run the campaign in preview-only mode (emails saved to /outbox folder).
-   ![Outbox Emails](screenshots/outbox%20folder%20with%20HTML%20files.png)
+![Outbox Emails](screenshots/outbox%20folder%20with%20HTML%20files.png)
   python manage.py send --csv recipients.csv --template emails/fake_invoice.html --campaign "October Drill"
-  ![Campaign Processed](screenshots/Terminal%20Campaign%20processed%20in%20preview%20mode.png)
+![Campaign Processed](screenshots/Terminal%20Campaign%20processed%20in%20preview%20mode.png)
   
 ## Simulation Walkthrough
 1.  **Open the phishing email (preview mode).**
-   ![Training Email Opened](screenshots/opened%20training%20email.png)
-3.  **Clicking View Invoice -> Phishing Awareness Debrief page.**
-   ![Phishing Landing Page](screenshots/Landing%20Page.png)
-4.  **Clicking Report Simulation -> Reported confirmation page**
-   ![Reported Confirmation](screenshots/Reported%20Page.png)
+![Training Email Opened](screenshots/opened%20training%20email.png)
+2.  **Clicking View Invoice -> Phishing Awareness Debrief page.**
+![Phishing Landing Page](screenshots/Landing%20Page.png)
+3.  **Clicking Report Simulation -> Reported confirmation page**
+![Reported Confirmation](screenshots/Reported%20Page.png)
 
 ## Admin Dashboard
 The admin dashboard tracks campaign progress in real-time:
