@@ -6,10 +6,7 @@ It generates simulated phishing emails, provides awareness landing pages, and tr
 
 The goal of this project is to help raise security awareness and provide hands-on experience with phishing simulation workflows.
 
----
-
 ## Setup
-
 1. **Create a virtual environment and install dependencies**
    ```bash
    python -m venv .venv
