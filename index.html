@@ -1,148 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Damian Morales | Cybersecurity Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Damian Morales | Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity portfolio for Damian Morales showcasing projects, labs, and certifications." />
+  <link rel="icon" href="data:," />
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#111a2d; --muted:#97a3b6; --text:#e6edf6; --brand:#67e8f9; --accent:#8b5cf6;
+      --card:#0f1626; --border:#24324a; --link:#9bdbff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--link);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.7);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+    .brand{font-weight:700;letter-spacing:.3px}
+    .nav a{margin-left:18px;color:var(--text)}
+    /* HERO */
+    .hero{padding:56px 24px 8px}
+    .hero h1{font-size:clamp(28px,4vw,40px);margin:0 0 8px}
+    .hero p{color:var(--muted);max-width:800px;margin:0}
+    /* SECTION HEADER */
+    .section{padding:32px 0}
+    .section h2{font-size:clamp(22px,3vw,28px);margin:0 0 14px}
+    .section p.lead{color:var(--muted);margin-top:0;margin-bottom:18px}
+    /* CARDS GRID */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .card-media{aspect-ratio:16/9;background:#0a0f1a;display:block;width:100%;object-fit:cover;border-bottom:1px solid var(--border)}
+    .card-body{padding:16px}
+    .badge{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--accent));color:#06101a;font-weight:700;border-radius:999px;padding:2px 10px;font-size:12px;margin-right:8px}
+    .meta{color:var(--muted);font-size:14px;margin-top:2px}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--text)}
+    .btn:hover{transform:translateY(-1px)}
+    /* DETAILS (accordion) */
+    details{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:10px 0;padding:12px}
+    summary{cursor:pointer;font-weight:600}
+    summary::marker{color:var(--brand)}
+    /* TWO COL (for cert + labs) */
+    .cols{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-7{grid-column:span 12}
+    .col-5{grid-column:span 12}
+    @media (min-width:900px){
+      .card{grid-column:span 6}
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+    }
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:28px 0;margin-top:32px;color:var(--muted);text-align:center}
+    /* LISTS */
+    ul.clean{list-style:none;padding-left:0;margin:8px 0}
+    ul.clean li{padding:6px 0;border-bottom:1px dashed var(--border)}
+    ul.clean li:last-child{border-bottom:none}
+  </style>
 </head>
-
 <body>
-    <h1>Welcome to My Cybersecurity Portfolio</h1>
-    <p>Hi, I'm Damian Morales, an aspiring cybersecurity analyst. This site highlights my coursework, hands-on labs, and professional growth in cybersecurity.</p>
-</body>
-</html>
 
-<hr>
-<h2>Certificate Progress</h2>
-<ul>
-<li><a href="google-cybersecurity-cert/01-foundations.html">1. Foundations of Cybersecurity</a></li>
-<li><a href="google-cybersecurity-cert/02-manage-risks.html">2. Manage Security Risks</a></li>
-<li><a href="google-cybersecurity-cert/03-networks-and-network-security.html">3. Connect and Protect – Networks and Network Security</a></li>
-<li><a href="google-cybersecurity-cert/04-tools-Linux-sql.html">4. Tools of the Trade: Linux and SQL</a></li>
-<li><a href="google-cybersecurity-cert/05-threat-vulnerabilities.html">5. Assets, Threats, and Vulnerabilities</a></li>
-<li><a href="google-cybersecurity-cert/06-detection-response.html">6. Sound the Alarm: Detection and Response</a></li>
-<li><a href="google-cybersecurity-cert/07-automate python.html">7. Automate Cybersecurity Tasks with Python</a></li>
-</ul>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner container">
+      <div class="brand">Damian Morales</div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#certificate">Google Certificate</a>
+        <a href="#labs">Labs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<hr>
-<h2>Hands-On Labs and Incident Reports</h2>
-<ul>
-    
-<h3>Course 2: Play It Safe – Manage Security Risks</h3>
-<ul>
-     <p><em>Highlighted Project from Course 2:</em></p>
-            <li>
-                 <a href="google-cybersecurity-cert/botium-controls-compliance.html"><strong>Botium Toys Controls & Compliance Checklist Portfolio Activity</strong></a>
-                  <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-</ul>
+  <!-- HERO -->
+  <section class="hero container">
+    <h1>Cybersecurity Portfolio</h1>
+    <p>
+      Hi, I’m Damian Morales—a cybersecurity practitioner focused on risk management,
+      detection & response, and security automation. This portfolio highlights my hands-on projects,
+      labs, and the Google Cybersecurity Professional Certificate work.
+    </p>
+  </section>
 
-<h3>Course 3: Connect and Protect – Networks and Network Security</h3>
-<ul>
-  <li><a href="google-cybersecurity-cert/dns-http-analysis.html">Analyze TCP SYN Attack & HTTP Interruption</a><li>
-  <li><a href="google-cybersecurity-cert/malware-redirection-report.html">Malware Redirection Incident Report</a></li>
-  <p><em>Highlighted Project from Course 3:</em></p>
-        <li>
-            <a href="google-cybersecurity-cert/ddos-csf-analysis.html"><strong>DDoS Incident Report with NIST CSF Analysis Portfolio Activity</strong></a>
-            <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-        </li>
-</ul>
+  <!-- PROJECTS -->
+  <section id="projects" class="section container">
+    <h2>Projects</h2>
+    <p class="lead">Selected, end-to-end projects that demonstrate practical skills and outcomes.</p>
 
-<h3>Course 4: Tools of the Trade – Linux and SQL</h3>
-<ul>
-    <li><a href="google-cybersecurity-cert/install-linux-tools-lab.html">Install, Uninstall, and Reinstall Linux Tools Lab</a></li>
-    <li><a href="google-cybersecurity-cert/bash-shell-lab.html">Bash Shell Input and Output Lab</a></li>
-    <li><a href="google-cybersecurity-cert/linux-navigation-lab.html">Navigating Linux File Systems Lab</a></li>
-    <li><a href="google-cybersecurity-cert/grep-lab.html">Filtering Information with GREP Lab</a></li>
-    <li><a href="google-cybersecurity-cert/manage-directories-lab.html">Managing Directories and Files Lab</a></li>
-    <li><a href="google-cybersecurity-cert/linux-permissions-lab.html">Linux File Permissions and Authorization Lab</a></li>
-    <p><em>Highlighted Project from Course 4:</em></p>
-            <li>
-                  <a href="google-cybersecurity-cert/permissions-portfolio-activity.html"><strong>File Permissions Portfolio Activity</strong></a>
-                  <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-    <li><a href="google-cybersecurity-cert/manage-linux-users-lab.html">Managing Linux Users Lab</a></li>
-    <li><a href="google-cybersecurity-cert/linux-help-commands-lab.html">Using Linux Help Commands Lab</a></li>
-    <li><a href="google-cybersecurity-cert/sql-query-lab.html">Basic SQL Queries Lab</a></li>
-    <li><a href="google-cybersecurity-cert/sql-filtering-lab.html">Filtering Data with SQL Lab</a></li>
-    <li><a href="google-cybersecurity-cert/sql-date-filtering-lab.html">Filtering SQL Data by Numbers and Dates Lab</a></li>
-    <li><a href="google-cybersecurity-cert/sql-multiple-filters-lab.html">Filtering SQL Queries with Logical Operators Lab</a></li>
-        <p><em>Highlighted Project from Course 4:</em></p>
-            <li>
-                  <a href="google-cybersecurity-cert/sql-apply-filters-portfolio-activity.html"><strong>Applying Filters to SQL Queries Portfolio Activity</strong></a>
-                  <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-    <li><a href="google-cybersecurity-cert/sql-joins-lab.html">SQL Joins Lab</a></li>
-</ul>
-<h3>Course 5: Assets, Threats, and Vulnerabilities:</h3>
-<ul>
-    <li><a href="google-cybersecurity-cert/asset-classification-lab.html">Asset Classification Lab</a></li>
-    <li><a href="google-cybersecurity-cert/risk-register.html">Risk Register - Risk Assessment Lab</a></li>
-    <li><a href="google-cybersecurity-cert/data-leak-privacy-review.html">Data Leak Privacy Lab</a></li>
-    <li><a href="google-cybersecurity-cert/decrypt-data-linux-lab.html">Decrypt Data with Linux Commands Lab</a></li>
-    <li><a href="google-cybersecurity-cert/hash-validation-linux-lab.html">Validate File Integrity with Hashes Lab</a></li>
-    <li><a href="google-cybersecurity-cert/assess-access-controls.html">Assessing Access Controls Lab</a></li>
-        <p><em>Highlighted Project from Course 5:</em></p>
-            <li>
-                  <a href="google-cybersecurity-cert/vulnerability-assessment-portfolio-activity.html"><strong>Vulnerability Assessment Portfolio Activity</strong></a>
-                  <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-    <li><a href="google-cybersecurity-cert/parking-lot-usb-lab.html">Parking Lot USB Exercise Lab</a></li>
-    <li><a href="google-cybersecurity-cert/threat-modeling-pasta-lab.html">Threat Modeling with PASTA Lab</a></li>
-</ul>
-<h3>Course 6: Sound the Alarm: Detection and Response:</h3>
-<ul>
-    <li><a href="google-cybersecurity-cert/incident-handler-journal-lab.html">Incident Handler’s Journal Lab</a></li>
-    <li><a href="google-cybersecurity-cert/inspect-network-traffic-lab.html">Inspect Network Traffic with Wireshark Lab</a></li>
-    <li><a href="google-cybersecurity-cert/capture-network-traffic-lab.html">Capture Network Traffic with tcpdump Lab</a></li>
-    <li><a href="google-cybersecurity-cert/compare-wireshark-tcpdump-lab.html">Compare Wireshark and tcpdump Lab</a></li>
-    <li><a href="google-cybersecurity-cert/analyze-artifact-pyramid-lab.html">Analyze Artifact with VirusTotal Lab</a></li>
-    <li><a href="google-cybersecurity-cert/respond-phishing-lab.html">Respond to Phishing Incident Lab</a></li>
-    <li><a href="google-cybersecurity-cert/custom-suricata-rules-lab.html">Custom Suricata Rules Lab</a></li>
-    <li><a href="google-cybersecurity-cert/search-data-splunk-lab.html">Search Data in Splunk Cloud Lab</a></li>
-        <p><em>Highlighted Project from Course 6:</em></p>
-            <li>
-                <a href="google-cybersecurity-cert/finalize-incident-journal-lab.html"><strong>Finalize Incident Handler’s Journal Portfolio Activity</strong></a>
-                <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-</ul>
-<h3>Course 7: Automate Python:</h3>
-<ul>
-    <li><a href="google-cybersecurity-cert/python-notebook-lab.html">Getting Started with Python Notebooks Lab</a></li>
-    <li><a href="google-cybersecurity-cert/variable-assignment-lab.html">Variable Assignment in Python Notebooks Lab</a></li>
-    <li><a href="google-cybersecurity-cert/loops-in-python-lab.html">Iterating with Loops</a></li>
-    <li><a href="google-cybersecurity-cert/functions-in-python-lab.html">Defining and Calling Functions in Python</a></li>
-    <li><a href="google-cybersecurity-cert/built-in-functions-lab.html">Working with Built-In Functions in Python</a></li>
-    <li><a href="google-cybersecurity-cert/working-with-strings-lab.html">Working with Strings in Python</a></li>
-    <li><a href="google-cybersecurity-cert/developing-algorithms-lab.html">Developing Algorithms in Python</a></li>
-    <li><a href="google-cybersecurity-cert/working-with-regex-lab.html">Working with Regular Expressions in Python</a></li>
-    <li><a href="google-cybersecurity-cert/parse-text-files-lab.html">Parsing Security Logs from Text Files</a></li>
-    <li><a href="google-cybersecurity-cert/filter-allowed-ips-lab.html">Filtering Allowed IPs from Text Files</a></li>
-        <p><em>Highlighted Project from Course 7:</em></p>
-            <li>
-                <a href="google-cybersecurity-cert/update-file-algorithm.html"><strong>Update a File through a Python Algorithm Portfolio Activity</strong></a>
-                <span style="background:#ffeb3b; color:#000; font-size: 0.8em; padding: 2px 6px; border-radius: 4px;">★ Featured</span>
-            </li>
-    <li><a href="google-cybersecurity-cert/debug-python-lab.html">Debugging Python Code Lab</a></li>
-</ul>
-<h3>Course 8: Career Prep:</h3>
-<ul>
-    <li><a href="google-cybersecurity-cert/security-organizations-lab.html">Security Organization Worksheet</a></li>
-<ul>
+    <div class="grid">
+      <!-- Phishing Awareness -->
+      <article class="card">
+        <img class="card-media"
+             src="projects/phishing-awareness/screenshots/Dashboard%20sent_clicked_reported%20updated.png"
+             alt="Admin dashboard showing sent/clicked/reported metrics" />
+        <div class="card-body">
+          <div class="badge">New</div>
+          <strong>Phishing Awareness Training Simulator (Flask)</strong>
+          <div class="meta">Flask · SQLite · Email templating · Metrics dashboard</div>
+          <p style="margin-top:8px;color:var(--muted)">
+            Simulated phishing emails, tracked user interactions (sent, clicked, reported),
+            and provided training/debrief pages with an admin dashboard for campaign metrics.
+          </p>
+          <div class="btns">
+            <a class="btn" href="projects/phishing-awareness/README.md">Project README</a>
+            <a class="btn" href="https://github.com/Damian-Morales/DamianMorales.github.io/tree/main/projects/phishing-awareness">View on GitHub</a>
+          </div>
+        </div>
+      </article>
 
+      <!-- Add more project cards here in the same pattern -->
+    </div>
+  </section>
 
-    
-</ul>
-<hr>
-<h2>Professional Development</h2>
-<ul>
-    <a href="google-cybersecurity-cert/professional-statement.html">Professional Statement</a>
-</ul>
+  <!-- CERT + FEATURED -->
+  <section id="certificate" class="section container">
+    <h2>Google Cybersecurity Professional Certificate</h2>
+    <div class="cols">
+      <div class="col-7">
+        <details open>
+          <summary>Courses & Milestones</summary>
+          <ul class="clean">
+            <li><a href="google-cybersecurity-cert/01-foundations.html">1) Foundations of Cybersecurity</a></li>
+            <li><a href="google-cybersecurity-cert/02-manage-risks.html">2) Manage Security Risks</a></li>
+            <li><a href="google-cybersecurity-cert/03-networks-and-network-security.html">3) Networks & Network Security</a></li>
+            <li><a href="google-cybersecurity-cert/04-tools-Linux-sql.html">4) Tools of the Trade: Linux & SQL</a></li>
+            <li><a href="google-cybersecurity-cert/05-threat-vulnerabilities.html">5) Assets, Threats & Vulnerabilities</a></li>
+            <li><a href="google-cybersecurity-cert/06-detection-response.html">6) Detection & Response</a></li>
+            <li><a href="google-cybersecurity-cert/07-automate python.html">7) Automate Cybersecurity Tasks with Python</a></li>
+          </ul>
+        </details>
 
-<hr>
-<footer>
-  <p style="text-align: center; font-size: 0.9em; color: #555;">
-    © 2025 Damian Morales | Built with <a href="https://pages.github.com/">GitHub Pages</a>
-  </p>
-</footer>
+        <details>
+          <summary>Featured Portfolio Activities</summary>
+          <ul class="clean">
+            <li><a href="google-cybersecurity-cert/botium-controls-compliance.html">Controls & Compliance Checklist (Course 2)</a></li>
+            <li><a href="google-cybersecurity-cert/ddos-csf-analysis.html">DDoS Incident Report with NIST CSF (Course 3)</a></li>
+            <li><a href="google-cybersecurity-cert/permissions-portfolio-activity.html">File Permissions Activity (Course 4)</a></li>
+            <li><a href="google-cybersecurity-cert/sql-apply-filters-portfolio-activity.html">Apply Filters to SQL Queries (Course 4)</a></li>
+            <li><a href="google-cybersecurity-cert/vulnerability-assessment-portfolio-activity.html">Vulnerability Assessment (Course 5)</a></li>
+            <li><a href="google-cybersecurity-cert/finalize-incident-journal-lab.html">Finalize Incident Handler’s Journal (Course 6)</a></li>
+            <li><a href="google-cybersecurity-cert/update-file-algorithm.html">Update a File via Python Algorithm (Course 7)</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="col-5">
+        <div class="card">
+          <div class="card-body">
+            <strong>Highlights</strong>
+            <ul class="clean" style="margin-top:8px">
+              <li>Risk management deliverables (registers, access control assessments)</li>
+              <li>Network analysis (Wireshark, tcpdump) and incident reports</li>
+              <li>Linux & SQL labs focused on investigation and data filtering</li>
+              <li>Python automation for text parsing and policy enforcement</li>
+            </ul>
+            <div class="btns">
+              <a class="btn" href="#labs">Browse Labs</a>
+              <a class="btn" href="google-cybersecurity-cert/professional-statement.html">Professional Statement</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABS (kept compact; expanders for long lists) -->
+  <section id="labs" class="section container">
+    <h2>Hands-On Labs</h2>
+
+    <details>
+      <summary><strong>Course 3 – Networks & Network Security</strong> (samples)</summary>
+      <ul class="clean">
+        <li><a href="google-cybersecurity-cert/dns-http-analysis.html">Analyze TCP SYN Attack & HTTP Interruption</a></li>
+        <li><a href="google-cybersecurity-cert/malware-redirection-report.html">Malware Redirection Incident Report</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>Course 4 – Linux & SQL</strong> (samples)</summary>
+      <ul class="clean">
+        <li><a href="google-cybersecurity-cert/grep-lab.html">Filtering Information with GREP</a></li>
+        <li><a href="google-cybersecurity-cert/sql-joins-lab.html">SQL Joins</a></li>
+        <li><a href="google-cybersecurity-cert/linux-permissions-lab.html">Linux File Permissions</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>Course 6 – Detection & Response</strong> (samples)</summary>
+      <ul class="clean">
+        <li><a href="google-cybersecurity-cert/inspect-network-traffic-lab.html">Inspect Network Traffic with Wireshark</a></li>
+        <li><a href="google-cybersecurity-cert/respond-phishing-lab.html">Respond to a Phishing Incident</a></li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section container">
+    <h2>Contact</h2>
+    <p class="lead">Want to collaborate or chat about security work?</p>
+    <div class="btns">
+      <a class="btn" href="https://github.com/Damian-Morales">GitHub</a>
+      <a class="btn" href="mailto:security-team@example.com">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Damian Morales · Built with <a href="https://pages.github.com/">GitHub Pages</a>
+  </footer>
 </body>
 </html>
