@@ -26,4 +26,3 @@ To begin the hardening process, I logged into my router’s local web interface 
 ![Router Info](screenshots/Router%20model%20and%20firmware%20version%20(router).png)
 ![Wireless Settings](screenshots/Wireless%20Settings%20(router).png)
 ![Connected Devices](screenshots/Connected%20Devices%20(router).png)
-![DHCP Info](screenshots/LAN%20IP%20&%20DHCP%20Range%20(router).png)
