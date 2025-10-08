@@ -88,3 +88,29 @@ After reviewing the router configuration, I applied additional security improvem
 The router was successfully hardened by enabling monitoring, verifying the firewall, and disabling risky features such as DMZ and Port Forwarding.  
 All connected devices were confirmed to be legitimate, and DNS resolution is securely managed by the ISP.  
 These actions significantly reduce attack surfaces and strengthen the overall resilience of the home network.
+
+## Step 4: Conclusion & Recommendations
+
+Through this project, I conducted a comprehensive security review and hardening of my home network.  
+Each step—from initial mapping to configuration auditing—helped identify and mitigate potential vulnerabilities commonly found in consumer routers.
+
+### Summary of Achievements
+- Logged into the router’s admin interface and reviewed current settings  
+- Disabled insecure features such as **UPnP**, **WPS**, and **DMZ**  
+- Verified **WPA2 encryption** and confirmed strong Wi-Fi passwords  
+- Enabled **system logging** for ongoing monitoring  
+- Verified **firewall protection** was active  
+- Ensured all **connected devices** were recognized and trusted  
+
+### Recommendations for Ongoing Security
+1. **Check for firmware updates monthly** to ensure the router remains protected against new vulnerabilities.  
+2. **Change Wi-Fi passwords periodically** (at least every 6 months).  
+3. **Monitor the router logs** for repeated failed login attempts or unknown IP addresses.  
+4. **Add network segmentation** in the future (e.g., a guest Wi-Fi network for visitors).  
+5. **Consider using a separate hardware firewall** or intrusion-detection device for layered protection.  
+
+### Final Reflection
+This project strengthened both my practical understanding of home-network security and my ability to perform a real-world configuration audit.  
+By applying cybersecurity principles such as **least privilege**, **visibility**, and **defense-in-depth**, I reduced the attack surface and improved the overall resilience of my network.  
+These are the same techniques that can be applied to small-business and enterprise environments to ensure a secure network baseline.
+
