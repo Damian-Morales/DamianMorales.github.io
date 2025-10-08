@@ -62,3 +62,29 @@ The router showed strong baseline security:
 - **Firmware** updates are handled automatically by the ISP (Spectrum), ensuring the router remains patched.
 
 This step confirms that the current configuration provides a solid security foundation for further hardening actions.
+
+## Step 3: Hardening Actions
+
+After reviewing the router configuration, I applied additional security improvements to enhance the protection of the home network.
+
+### Security Enhancements Applied
+| Action | Description | Result |
+|--------|--------------|--------|
+| Enabled System Logging | Activated router logging to track activity and potential threats | ✅ Completed |
+| Verified Firewall | Confirmed firewall is active and set to restrict unauthorized access | ✅ Completed |
+| Disabled Port Forwarding | Prevented applications from opening inbound connections | ✅ Completed |
+| Disabled DMZ | Stopped direct external access to internal devices | ✅ Completed |
+| Reviewed Connected Devices | Verified all connected systems are recognized and trusted | ✅ Completed |
+| Secure DNS | ISP-managed; Spectrum automatically provides secure DNS resolution | ⚙️ Not configurable manually |
+
+### Screenshots
+![Enable Logging](screenshots/Enable%20Logging%20(hardening).png)
+![Firewall Status](screenshots/Firewall%20Status%20(hardening).png)
+![Port Forwarding Disabled](screenshots/Port%20Forwarding%20disabled%20(hardening).png)
+![DMZ Disabled](screenshots/DMZ%20disabled%20(hardening).png)
+![Connected Devices](screenshots/Connected%20Devices%20(hardening).png)
+
+### Summary
+The router was successfully hardened by enabling monitoring, verifying the firewall, and disabling risky features such as DMZ and Port Forwarding.  
+All connected devices were confirmed to be legitimate, and DNS resolution is securely managed by the ISP.  
+These actions significantly reduce attack surfaces and strengthen the overall resilience of the home network.
