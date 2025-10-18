@@ -21,3 +21,13 @@ home-soc-wazuh-sysmon/
 ## Portfolio Page
 The live project write-up will be available at:
 [Home SOC Project Page](../home-soc-wazuh-sysmon.html)
+
+## Architecture Overview
+The Home SOC environment consists of:
+
+- **Ubuntu VM (Wazuh Server):** Runs Wazuh Manager, Indexer, and Dashboard using Docker.
+- **Windows Endpoint:** Runs the Wazuh Agent with Sysmon for telemetry collection.
+- **Network:** The agent forwards security event logs to the Wazuh Manager via port 1514/udp and management channel 1515/tcp.
+- **Dashboard:** Provides visualization, rule configuration, and alerting.
+
+![Architecture Diagram](docs/architecture.png)
