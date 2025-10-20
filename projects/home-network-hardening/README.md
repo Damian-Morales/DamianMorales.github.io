@@ -56,10 +56,10 @@ After mapping the network, I performed a router security audit to assess configu
 
 ### Findings Summary
 The router showed strong baseline security:
-- **UPnP**, **WPS**, and **Remote Management** were all disabled, minimizing unnecessary external exposure.
-- **WPA2 encryption** is active on both Wi-Fi bands.
-- The **admin password** is custom and secure, reducing credential-based risk.
-- **Firmware** updates are handled automatically by the ISP (Spectrum), ensuring the router remains patched.
+- UPnP, WPS, and Remote Management were all disabled, minimizing unnecessary external exposure.
+- WPA2 encryption is active on both Wi-Fi bands.
+- The admin password is custom and secure, reducing credential-based risk.
+- Firmware updates are handled automatically by the ISP (Spectrum), ensuring the router remains patched.
 
 This step confirms that the current configuration provides a solid security foundation for further hardening actions.
 
@@ -70,12 +70,12 @@ After reviewing the router configuration, I applied additional security improvem
 ### Security Enhancements Applied
 | Action | Description | Result |
 |--------|--------------|--------|
-| Enabled System Logging | Activated router logging to track activity and potential threats | ✅ Completed |
-| Verified Firewall | Confirmed firewall is active and set to restrict unauthorized access | ✅ Completed |
-| Disabled Port Forwarding | Prevented applications from opening inbound connections | ✅ Completed |
-| Disabled DMZ | Stopped direct external access to internal devices | ✅ Completed |
-| Reviewed Connected Devices | Verified all connected systems are recognized and trusted | ✅ Completed |
-| Secure DNS | ISP-managed; Spectrum automatically provides secure DNS resolution | ⚙️ Not configurable manually |
+| Enabled System Logging | Activated router logging to track activity and potential threats | Completed |
+| Verified Firewall | Confirmed firewall is active and set to restrict unauthorized access | Completed |
+| Disabled Port Forwarding | Prevented applications from opening inbound connections | Completed |
+| Disabled DMZ | Stopped direct external access to internal devices | Completed |
+| Reviewed Connected Devices | Verified all connected systems are recognized and trusted | Completed |
+| Secure DNS | ISP-managed; Spectrum automatically provides secure DNS resolution | Not configurable manually |
 
 ### Screenshots
 ![Enable Logging](screenshots/Enable%20Logging%20(hardening).png)
@@ -96,21 +96,21 @@ Each step—from initial mapping to configuration auditing—helped identify and
 
 ### Summary of Achievements
 - Logged into the router’s admin interface and reviewed current settings  
-- Disabled insecure features such as **UPnP**, **WPS**, and **DMZ**  
-- Verified **WPA2 encryption** and confirmed strong Wi-Fi passwords  
-- Enabled **system logging** for ongoing monitoring  
-- Verified **firewall protection** was active  
-- Ensured all **connected devices** were recognized and trusted  
+- Disabled insecure features such as UPnP, WPS, and DMZ  
+- Verified WPA2 encryption and confirmed strong Wi-Fi passwords  
+- Enabled system logging for ongoing monitoring  
+- Verified firewall protection was active  
+- Ensured all connected devices were recognized and trusted  
 
 ### Recommendations for Ongoing Security
-1. **Check for firmware updates monthly** to ensure the router remains protected against new vulnerabilities.  
-2. **Change Wi-Fi passwords periodically** (at least every 6 months).  
-3. **Monitor the router logs** for repeated failed login attempts or unknown IP addresses.  
-4. **Add network segmentation** in the future (e.g., a guest Wi-Fi network for visitors).  
-5. **Consider using a separate hardware firewall** or intrusion-detection device for layered protection.  
+1. Check for firmware updates monthly to ensure the router remains protected against new vulnerabilities.  
+2. Change Wi-Fi passwords periodically (at least every 6 months).  
+3. Monitor the router logs for repeated failed login attempts or unknown IP addresses.  
+4. Add network segmentation in the future (e.g., a guest Wi-Fi network for visitors).  
+5. Consider using a separate hardware firewall or intrusion-detection device for layered protection.  
 
 ### Final Reflection
 This project strengthened both my practical understanding of home-network security and my ability to perform a real-world configuration audit.  
-By applying cybersecurity principles such as **least privilege**, **visibility**, and **defense-in-depth**, I reduced the attack surface and improved the overall resilience of my network.  
+By applying cybersecurity principles such as least privilege, visibility, and defense-in-depth, I reduced the attack surface and improved the overall resilience of my network.  
 These are the same techniques that can be applied to small-business and enterprise environments to ensure a secure network baseline.
 
