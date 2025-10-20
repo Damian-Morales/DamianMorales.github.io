@@ -1,7 +1,7 @@
 # Phishing Awareness Training Project
 
 ## Overview
-This project is a **Phishing Awareness Training Simulator** built with **Flask**.  
+This project is a **Phishing Awareness Training Simulator** built with Flask.  
 It generates simulated phishing emails, provides awareness landing pages, and tracks user interactions (sent, clicked, reported) on an admin dashboard.
 
 The goal of this project is to help raise security awareness and provide hands-on experience with phishing simulation workflows.
