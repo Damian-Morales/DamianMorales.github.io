@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Network Security Hardening | Damian Morales</title>
+  <meta name="description" content="Audit and harden a home network: map devices, review router settings, disable risky features (UPnP/WPS/DMZ/Port Forwarding), verify WPA2, enable logging, and document findings." />
+  <style>
+    :root{
+      --bg:#0e1117; --card:#161b22; --muted:#93a1b1; --text:#e6edf3;
+      --accent:#2f81f7; --border:#30363d; --accent-2:#f7b731;
+    }
+    html,body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:48px auto;padding:0 20px}
+    .header{margin-bottom:18px}
+    h1{font-size:clamp(28px,3.2vw,44px);margin:0 0 8px}
+    .sub{color:var(--muted);margin:0 0 20px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 28px}
+    .btn{display:inline-block;border:1px solid var(--border);background:transparent;padding:10px 14px;border-radius:9px}
+    .btn.primary{background:var(--card);border-color:var(--border)}
+    .badge{display:inline-block;font-size:12px;border:1px solid var(--border);padding:3px 8px;border-radius:999px;color:var(--muted);margin-right:6px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin:18px 0}
+    h2{font-size:clamp(20px,2.2vw,28px);margin:2px 0 10px}
+    h3{font-size:18px;margin:14px 0 6px}
+    ul{margin:8px 0 14px 18px}
+    code,kbd{background:#0b0e14;border:1px solid var(--border);padding:2px 6px;border-radius:6px}
+    .grid{display:grid;gap:14px}
+    @media (min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+    figure{margin:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#0b0f15}
+    figure img{display:block;width:100%;height:auto}
+    figure figcaption{font-size:13px;color:var(--muted);padding:10px 12px;border-top:1px solid var(--border)}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 2px}
+    .kpis{display:grid;gap:10px}
+    @media (min-width:760px){.kpis{grid-template-columns:repeat(3,1fr)}}
+    .kpi{background:#0b0e14;border:1px dashed var(--border);border-radius:12px;padding:12px}
+    .kpi b{display:block;font-size:18px}
+    .callout{border-left:3px solid var(--accent);padding:10px 12px;background:#0b0e14;border-radius:8px}
+    .checklist{width:100%;border-collapse:collapse;margin:8px 0}
+    .checklist th,.checklist td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+    .ok{color:#2ecc71} .warn{color:#f39c12}
+    .footer{color:var(--muted);font-size:13px;margin:26px 0 10px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>Home Network Security Hardening</h1>
+      <p class="sub">Router audit + configuration hardening: map devices, verify WPA2, disable UPnP/WPS/DMZ/Port Forwarding, enable logging, and document findings.</p>
+      <div class="meta">
+        <span class="badge">Oct 2025</span>
+        <span class="badge">Consumer Router</span>
+        <span class="badge">Windows / Wi-Fi</span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="../../index.html#projects">← Back to Projects</a>
+        <a class="btn primary" href="https://github.com/Damian-Morales/DamianMorales.github.io/tree/main/projects/home-network-hardening" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Overview</h2>
+      <p>
+        I assessed and hardened my home network by signing into the router’s admin portal, documenting the environment, and disabling risky features that commonly expand attack surface in consumer setups. 
+        The work produced a clear before/after record and a repeatable checklist for ongoing security.
+      </p>
+      <div class="kpis">
+        <div class="kpi"><b>0</b> inbound services exposed (WAN)</div>
+        <div class="kpi"><b>WPA2</b> verified on Wi-Fi</div>
+        <div class="kpi"><b>Logging</b> enabled for visibility</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Step 1 — Network Mapping</h2>
+      <p>Logged into the router UI (<code>192.168.1.1</code>) and captured baseline details: model/firmware, wireless settings, connected devices, DHCP range.</p>
+      <div class="grid">
+        <figure>
+          <img src="screenshots/Router%20model%20and%20firmware%20version%20(router).png" alt="Router model & firmware" />
+          <figcaption>Router model &amp; firmware version</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Wireless%20Settings%20(router).png" alt="Wireless settings" />
+          <figcaption>Wireless settings (WPA2)</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Connected%20Devices%20(router).png" alt="Connected devices" />
+          <figcaption>Connected device inventory</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/LAN%20IP%20and%20DHCP%20Range%20(router).png" alt="LAN/DHCP" />
+          <figcaption>LAN IP &amp; DHCP Range</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Step 2 — Router Security Assessment</h2>
+      <p>I reviewed key security settings to ensure strong defaults and no unnecessary exposure.</p>
+      <table class="checklist">
+        <thead>
+          <tr><th>Category</th><th>Setting Checked</th><th>Status</th><th>Recommendation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Remote Management</td><td>Access from WAN</td><td class="ok">Disabled</td><td>✅ Secure</td></tr>
+          <tr><td>UPnP</td><td>Automatic port config</td><td class="ok">Disabled</td><td>✅ Secure</td></tr>
+          <tr><td>WPS</td><td>Wi-Fi Protected Setup</td><td class="ok">Disabled</td><td>✅ Secure</td></tr>
+          <tr><td>Admin Credentials</td><td>Default password changed</td><td class="ok">Yes</td><td>✅ Secure</td></tr>
+          <tr><td>Wireless Security</td><td>WPA2 enabled</td><td class="ok">Yes</td><td>✅ Secure</td></tr>
+          <tr><td>Guest Network</td><td>Not present/disabled</td><td class="ok">—</td><td>✅ Secure</td></tr>
+          <tr><td>Firmware</td><td>Up-to-date (ISP-managed)</td><td class="ok">Yes</td><td>✅ Secure</td></tr>
+        </tbody>
+      </table>
+
+      <div class="grid" style="margin-top:10px">
+        <figure>
+          <img src="screenshots/Universal%20Plug%20and%20Play%20(security).png" alt="UPnP off" />
+          <figcaption>UPnP disabled</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/WPS%20is%20off%20(security).png" alt="WPS off" />
+          <figcaption>WPS disabled</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/WPA2%20being%20used%20(security).png" alt="WPA2" />
+          <figcaption>WPA2 in use</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/admin%20username%20(security).png" alt="Admin user set" />
+          <figcaption>Custom admin credentials</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Check%20Firmware%20(security).png" alt="Firmware status" />
+          <figcaption>Firmware status (ISP managed)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Step 3 — Hardening Actions</h2>
+      <p>Applied changes to reduce attack surface and add visibility.</p>
+      <ul>
+        <li>Enabled system logging</li>
+        <li>Verified firewall is active</li>
+        <li>Disabled Port Forwarding and DMZ</li>
+        <li>Reviewed connected devices for trust</li>
+        <li>Kept ISP-managed secure DNS</li>
+      </ul>
+      <div class="grid">
+        <figure>
+          <img src="screenshots/Enable%20Logging%20(hardening).png" alt="Enable logging" />
+          <figcaption>System logging enabled</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Firewall%20Status%20(hardening).png" alt="Firewall" />
+          <figcaption>Firewall verified on</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Port%20Forwarding%20disabled%20(hardening).png" alt="Port Forwarding disabled" />
+          <figcaption>Port Forwarding disabled</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/DMZ%20disabled%20(hardening).png" alt="DMZ disabled" />
+          <figcaption>DMZ disabled</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Connected%20Devices%20(hardening).png" alt="Connected devices verified" />
+          <figcaption>Connected devices reviewed</figcaption>
+        </figure>
+      </div>
+
+      <div class="callout" style="margin-top:14px">
+        <strong>Result:</strong> No inbound WAN exposure, modern Wi-Fi encryption, and improved logging/visibility.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Conclusion & Recommendations</h2>
+      <p>
+        The router now follows secure defaults and least-privilege principles. Next steps: monthly firmware checks, periodic Wi-Fi password rotation, log review for anomalies, and (optionally) create a guest SSID for segmentation.
+      </p>
+    </section>
+
+    <p class="footer">© Damian Morales</p>
+  </main>
+</body>
+</html>
