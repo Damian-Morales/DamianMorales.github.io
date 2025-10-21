@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phishing Awareness Training Simulator | Damian Morales</title>
+  <meta name="description" content="Flask-based phishing awareness simulator: send preview emails, track clicks/reports, and debrief with landing pages. Includes admin dashboard and campaign workflow." />
+
+  <style>
+    :root{
+      --bg:#0e1117; --card:#161b22; --muted:#9fb0c1; --text:#e6edf3; --accent:#2f81f7; --border:#30363d;
+      --pill:#21262d; --good:#3fb950; --warn:#d29922;
+    }
+    html,body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:48px auto;padding:0 20px}
+    header{margin-bottom:18px}
+    h1{font-size:clamp(28px,3vw,40px);margin:0 0 6px}
+    .sub{color:var(--muted);margin:0 0 18px}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:var(--pill);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:14px}
+    .row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 24px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin:18px 0}
+    .card h3{margin:0 0 10px}
+    .grid{display:grid;gap:14px}
+    @media(min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+    figure{margin:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#0b0f15}
+    figure img{display:block;width:100%;height:auto}
+    figcaption{font-size:13px;color:var(--muted);padding:9px 12px;border-top:1px solid var(--border)}
+    .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 14px;border-radius:10px}
+    .btn:hover{border-color:#3a79ff}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi{background:var(--pill);border:1px solid var(--border);padding:10px 14px;border-radius:12px}
+    code,pre{background:#0b0f15;border:1px solid var(--border);border-radius:8px;padding:10px;color:#c9d1d9}
+    pre{overflow:auto}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-top:4px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+
+    <header>
+      <div class="row">
+        <a class="btn" href="/DamianMorales.github.io/index.html#projects">← Back to Projects</a>
+        <a class="btn" href="/DamianMorales.github.io/index.html">🏠 Portfolio Home</a>
+      </div>
+
+      <h1>Phishing Awareness Training Simulator</h1>
+      <p class="sub">
+        Flask app that simulates phishing campaigns, provides awareness landing pages, and tracks user interactions
+        (sent, clicked, reported) in an admin dashboard.
+      </p>
+      <div class="meta">
+        <span class="pill">📅 Oct 2025</span>
+        <span class="pill">🐍 Flask • Python</span>
+        <span class="pill">📬 Email Simulation</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h3>Overview</h3>
+      <p>
+        This project generates preview-only phishing emails, routes users to a debrief landing page when they
+        “click,” and records actions in a simple admin dashboard. It’s designed for awareness and training—not
+        malicious use—and helped me practice end-to-end simulation workflows with Flask, templating, and a small DB
+        for campaign tracking. :contentReference[oaicite:1]{index=1}
+      </p>
+      <div class="kpis">
+        <span class="kpi">🎯 Simulated emails (preview mode)</span>
+        <span class="kpi">🔗 Click tracking</span>
+        <span class="kpi">📨 Report tracking</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Environment & Setup</h3>
+      <div class="grid">
+        <div>
+          <h4>Create virtual env & install</h4>
+          <pre><code>python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt</code></pre>
+          <figure>
+            <img src="screenshots/Terminal_venv.png" alt="Virtual environment terminal" />
+            <figcaption>Virtual environment activated.</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h4>Initialize the database</h4>
+          <pre><code>python manage.py init-db</code></pre>
+          <figure>
+            <img src="screenshots/database_initialized.png" alt="Database initialized" />
+            <figcaption>Database bootstrapped for the app.</figcaption>
+          </figure>
+
+          <h4 style="margin-top:16px">Configure environment</h4>
+          <p>Copy <code>.env.example</code> to <code>.env</code> and adjust defaults.</p>
+          <figure>
+            <img src="screenshots/file%20.env%20opened.png" alt=".env file opened" />
+            <figcaption>Environment variables for campaigns.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Run a Campaign (preview mode)</h3>
+      <pre><code>python manage.py send --csv recipients.csv \
+  --template emails/fake_invoice.html --campaign "October Drill"</code></pre>
+
+      <div class="grid">
+        <figure>
+          <img src="screenshots/outbox%20folder%20with%20HTML%20files.png" alt="Preview outbox with HTML emails" />
+          <figcaption>Preview emails saved to the outbox folder.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Terminal%20Campaign%20processed%20in%20preview%20mode.png" alt="Terminal campaign processed" />
+          <figcaption>Campaign processed in preview mode.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Simulation Walkthrough</h3>
+      <div class="grid">
+        <figure>
+          <img src="screenshots/opened%20training%20email.png" alt="Opened training email" />
+          <figcaption>Opening the (simulated) training email.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Landing%20Page.png" alt="Phishing awareness landing page" />
+          <figcaption>Click leads to the awareness/debrief landing page.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/Reported%20Page.png" alt="Reported confirmation page" />
+          <figcaption>Reporting shows a confirmation page.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Admin Dashboard</h3>
+      <p>The dashboard aggregates campaign status (Sent, Clicked, Reported) so you can see progress at a glance.</p>
+      <figure>
+        <img src="screenshots/Dashboard%20sent_clicked_reported%20updated.png" alt="Admin dashboard with sent/clicked/reported" />
+        <figcaption>Admin view of campaign metrics.</figcaption>
+      </figure>
+    </section>
+
+    <section class="card">
+      <h3>Reflections</h3>
+      <ul>
+        <li>Learned how phishing simulations are structured end-to-end.</li>
+        <li>Hands-on practice with Flask, templating, simple DB tasks, and email generation.</li>
+        <li>Ethical use only: awareness and training—not malicious activity.</li>
+      </ul>
+    </section>
+
+    <footer class="row" style="margin-top:10px">
+      <a class="btn" href="/DamianMorales.github.io/index.html#projects">← Back to Projects</a>
+      <a class="btn" href="https://github.com/Damian-Morales/DamianMorales.github.io/tree/main/projects/phishing-awareness">View on GitHub</a>
+    </footer>
+
+  </main>
+</body>
+</html>
