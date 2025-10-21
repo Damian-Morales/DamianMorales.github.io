@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elastic Cloud SIEM Lab: PowerShell Activity Detection | Damian Morales</title>
+  <meta name="description" content="Hands-on SIEM lab in Elastic Cloud: collect Windows logs, enable prebuilt rules, trigger PowerShell activity, and investigate alerts." />
+  <style>
+    :root {
+      --bg:#0e1117; --card:#161b22; --text:#e6edf3; --muted:#9fb1c9; --accent:#2f81f7; --border:#30363d;
+    }
+    html,body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:48px auto;padding:0 20px}
+    header{margin-bottom:10px}
+    h1{font-size:clamp(28px,3.2vw,40px);margin:0 0 6px}
+    .sub{color:var(--muted);margin:0 0 28px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin:18px 0}
+    h2{margin:0 0 14px;font-size:clamp(20px,2.3vw,26px)}
+    ul{margin:10px 0 0 18px}
+    li{margin:4px 0}
+    .grid{display:grid;gap:16px}
+    @media (min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+    figure{margin:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0b0f15}
+    figure img{display:block;width:100%;height:auto}
+    figcaption{font-size:14px;color:var(--muted);padding:10px 12px;border-top:1px solid var(--border)}
+    .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted)}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:10px}
+    .btn:hover{border-color:var(--accent)}
+    footer{margin:36px 0 60px;color:var(--muted)}
+    code{background:#0b0f15;border:1px solid var(--border);padding:.1rem .3rem;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Elastic Cloud SIEM Lab: PowerShell Activity Detection</h1>
+      <p class="sub">Collect Windows security events with Elastic Agent, enable prebuilt rules, trigger PowerShell activity, and investigate alerts in Kibana.</p>
+      <div class="meta">
+        <span>🗓️ Oct 2025</span>
+        <span>🖥️ Windows 11 VM</span>
+        <span>🔍 Elastic Stack 9.x</span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="../index.html">← Back to Projects</a>
+        <a class="btn" href="../../index.html">🏠 Portfolio Home</a>
+      </div>
+    </header>
 
+    <section class="card">
+      <h2>Overview</h2>
+      <p>
+        In this mini-SIEM build, I deployed an <strong>Elastic Cloud</strong> deployment, enrolled a Windows host with
+        <strong>Elastic Agent</strong>, ingested Windows Security/PowerShell logs, turned on <strong>prebuilt detection
+        rules</strong>, and then generated benign PowerShell activity to validate end-to-end detection and investigation
+        in Kibana. The test successfully produced alerts, which I explored using the <em>Investigate in timeline</em> workflow.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Objectives</h2>
+      <ul>
+        <li>Spin up Elastic Cloud &amp; configure the Windows integration.</li>
+        <li>Enroll a Windows endpoint and confirm healthy telemetry.</li>
+        <li>Enable Elastic prebuilt rules related to authentication and PowerShell.</li>
+        <li>Generate test PowerShell events and confirm alerting.</li>
+        <li>Investigate alerts via host insights and Timeline.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Environment</h2>
+      <ul>
+        <li>Elastic Cloud (Kibana + Elasticsearch)</li>
+        <li>Elastic Agent on Windows with <code>system</code> and Windows integrations</li>
+        <li>Data streams: Windows Security, PowerShell/Script Block, Sysmon (where available)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Build &amp; Configure</h2>
+      <div class="grid">
+        <figure>
+          <img src="screenshots/step1-deployment.png" alt="Elastic Cloud deployment created" />
+          <figcaption>Step 1 — Elastic Cloud deployment created</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step2-kibana-home.png" alt="Kibana home" />
+          <figcaption>Step 2 — Accessing Kibana</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step3-indices.png" alt="Indices/data streams visible" />
+          <figcaption>Step 3 — Data streams/indices populating</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step4-agent-installed.png" alt="Elastic agent install output" />
+          <figcaption>Step 4 — Elastic Agent installed on Windows</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step5-agent-healthy.png" alt="Agent shows Healthy in Fleet" />
+          <figcaption>Step 5 — Agent Healthy in Fleet</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step6-security-events.png" alt="Windows security events visible in Discover" />
+          <figcaption>Step 6 — Windows Security events flowing</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step7-prebuilt-rules-loaded.png" alt="Prebuilt rules installed and enabled" />
+          <figcaption>Step 7 — Prebuilt rules installed &amp; enabled</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Detections &amp; Investigation</h2>
+      <p>
+        I generated benign PowerShell activity (e.g., <code>powershell -EncodedCommand ...</code>) to create
+        <em>Microsoft-Windows-PowerShell</em> provider events. Kibana raised alerts from my test rule
+        “PowerShell Activity Detected” and related prebuilt logic.
+      </p>
+      <div class="grid">
+        <figure>
+          <img src="screenshots/step8-triggered-alerts.png" alt="Triggered alerts in Kibana" />
+          <figcaption>Step 8 — Alerts raised (PowerShell activity)</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step8a-investigate-alert.png" alt="Alert flyout showing host insights and observed data" />
+          <figcaption>Alert flyout — Host insights &amp; observed data</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/step8b-investigate-alert.png" alt="Investigate in timeline view" />
+          <figcaption>Investigate in Timeline — correlated events on the host</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Key Findings</h2>
+      <ul>
+        <li>Windows Security + PowerShell events successfully ingested and normalized.</li>
+        <li>Prebuilt rules and a custom test rule detected activity as expected.</li>
+        <li>Host insights and Timeline made it easy to pivot from alert → process → user.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>What I Learned</h2>
+      <ul>
+        <li>End-to-end SIEM pipeline setup in Elastic Cloud and Fleet.</li>
+        <li>How to tune/target rules using <em>event.provider</em>, <em>event.action</em>, and <em>message</em> fields.</li>
+        <li>Practical investigation flows in Kibana (flyout → Take action → Timeline).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Next Steps</h2>
+      <ul>
+        <li>Expand to Sysmon and Filebeat for richer process/network telemetry.</li>
+        <li>Add case management automation and ticketing integrations.</li>
+        <li>Create dedicated rules for suspicious <code>EncodedCommand</code> usage and LOLBins.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="btns">
+        <a class="btn" href="../index.html">← Back to Projects</a>
+        <a class="btn" href="../../index.html">🏠 Portfolio Home</a>
+      </div>
+      <p style="margin-top:10px">© Damian Morales</p>
+    </footer>
+  </div>
+</body>
+</html>
