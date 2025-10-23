@@ -13,6 +13,7 @@
       --text: #e6edf3;
       --accent: #2f81f7;
       --border: #30363d;
+      --chip: #0b0f15;
     }
 
     html, body {
@@ -41,6 +42,7 @@
       border-radius: 999px;
       color: var(--muted);
       margin-right: 6px;
+      background: var(--card);
     }
 
     .btns { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 32px; }
@@ -53,41 +55,71 @@
     }
     .btn.primary { background: var(--card); }
 
+    /* Cards / section spacing */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 26px;
-      margin: 48px 0;          /* Bigger separation between sections */
+      padding: 28px;
+      margin: 56px 0; /* big separation between sections */
     }
 
-    h2 { font-size: clamp(20px, 2.2vw, 28px); margin: 4px 0 16px; }
-    h3 { font-size: 18px; margin: 22px 0 12px; }
+    h2 { font-size: clamp(20px, 2.2vw, 28px); margin: 4px 0 18px; }
+    h3 { font-size: 18px; margin: 26px 0 12px; }
     p  { margin: 0 0 12px; }
 
+    /* Code blocks */
     code, pre {
-      background: #0b0f15;
+      background: var(--chip);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 10px;
       color: #c9d1d9;
     }
-    pre { overflow: auto; margin: 0 0 18px; }
+    pre {
+      padding: 14px 16px;
+      overflow: auto;
+      margin: 0 0 20px;
+      line-height: 1.5;
+      white-space: pre-wrap;        /* allow wrapping */
+      word-break: break-word;       /* wrap very long tokens */
+    }
+    /* Fix: don't render a second rounded "chip" inside <pre> */
+    pre code {
+      display: block;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      border-radius: 0;
+      color: inherit;
+      white-space: inherit;
+    }
+    /* Inline code chips elsewhere */
+    :not(pre) > code {
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
 
-    /* Grid layout with larger, clearer gaps */
+    /* Grids */
     .grid {
       display: grid;
-      gap: 28px;               /* Larger gap for both rows and columns */
+      gap: 28px;              /* generous space between items */
       margin-top: 18px;
       align-items: start;
     }
-    @media (min-width: 820px) {
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* Dedicated single-column steps layout (always stacked) */
+    .grid-steps {
+      grid-template-columns: 1fr;
+    }
+    /* Two-column only where it helps visuals */
+    @media (min-width: 900px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     /* Media elements */
     figure {
-      margin: 0 0 14px;        /* Extra bottom margin inside cards */
+      margin: 0 0 16px;
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
@@ -103,17 +135,15 @@
 
     ul { margin: 10px 0 16px 22px; }
 
-    .kpis { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; }
+    .kpis { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
     .kpi {
-      background: #0b0f15;
+      background: var(--chip);
       border: 1px dashed var(--border);
       border-radius: 12px;
       padding: 14px 16px;
       flex: 1;
       min-width: 220px;
     }
-
-    footer { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
   </style>
 </head>
 <body>
@@ -149,9 +179,10 @@
       </div>
     </section>
 
+    <!-- SINGLE-COLUMN, SPACIOUS STEPS -->
     <section class="card">
       <h2>Environment & Setup</h2>
-      <div class="grid">
+      <div class="grid grid-steps">
         <div>
           <h3>Create virtual env & install</h3>
           <pre><code>python -m venv .venv
@@ -162,6 +193,7 @@ pip install -r requirements.txt</code></pre>
             <figcaption>Virtual environment activated.</figcaption>
           </figure>
         </div>
+
         <div>
           <h3>Initialize the database</h3>
           <pre><code>python manage.py init-db</code></pre>
@@ -169,7 +201,9 @@ pip install -r requirements.txt</code></pre>
             <img src="screenshots/database_initialized.png" alt="Database initialized">
             <figcaption>Database bootstrapped for the app.</figcaption>
           </figure>
+        </div>
 
+        <div>
           <h3>Configure environment</h3>
           <p>Copy <code>.env.example</code> to <code>.env</code> and adjust defaults.</p>
           <figure>
@@ -180,57 +214,15 @@ pip install -r requirements.txt</code></pre>
       </div>
     </section>
 
+    <!-- TWO-COLUMN ONLY WHERE IT HELPS VISUALS -->
     <section class="card">
       <h2>Run a Campaign (Preview Mode)</h2>
       <pre><code>python manage.py send --csv recipients.csv \
   --template emails/fake_invoice.html --campaign "October Drill"</code></pre>
-      <div class="grid">
+      <div class="grid grid-2">
         <figure>
           <img src="screenshots/outbox%20folder%20with%20HTML%20files.png" alt="Preview outbox with HTML emails">
           <figcaption>Preview emails saved to the outbox folder.</figcaption>
         </figure>
         <figure>
           <img src="screenshots/Terminal%20Campaign%20processed%20in%20preview%20mode.png" alt="Terminal campaign processed">
-          <figcaption>Campaign processed in preview mode.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Simulation Walkthrough</h2>
-      <div class="grid">
-        <figure>
-          <img src="screenshots/opened%20training%20email.png" alt="Opened training email">
-          <figcaption>Opening the simulated training email.</figcaption>
-        </figure>
-        <figure>
-          <img src="screenshots/Landing%20Page.png" alt="Phishing awareness landing page">
-          <figcaption>Click leads to awareness/debrief landing page.</figcaption>
-        </figure>
-        <figure>
-          <img src="screenshots/Reported%20Page.png" alt="Reported confirmation page">
-          <figcaption>Reporting shows confirmation page.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Admin Dashboard</h2>
-      <p>The dashboard aggregates campaign status (Sent, Clicked, Reported) for a quick overview of results.</p>
-      <figure>
-        <img src="screenshots/Dashboard%20sent_clicked_reported%20updated.png" alt="Admin dashboard with sent/clicked/reported">
-        <figcaption>Admin view of campaign metrics.</figcaption>
-      </figure>
-    </section>
-
-    <section class="card">
-      <h2>Conclusion</h2>
-      <ul>
-        <li>Built a full phishing simulation workflow in a safe environment.</li>
-        <li>Gained experience with Flask, templating, and database handling.</li>
-        <li>Created ethical awareness training for realistic security education.</li>
-      </ul>
-    </section>
-  </main>
-</body>
-</html>
